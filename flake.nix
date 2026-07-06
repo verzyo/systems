@@ -11,6 +11,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
@@ -25,9 +30,10 @@
       systems = ["x86_64-linux"];
 
       imports = [
-        ./parts/formatter.nix
         ./parts/checks.nix
+        ./parts/formatter.nix
         ./parts/devShells.nix
+        ./parts/nixosConfigurations.nix
       ];
     };
 }
