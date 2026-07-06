@@ -2,6 +2,7 @@
   inputs = {
     git-hooks = {
       url = "github:cachix/git-hooks.nix";
+      # inputs.flake-compat.follows = "flake-compat";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

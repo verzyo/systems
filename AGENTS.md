@@ -17,6 +17,22 @@ This repository is **Jujutsu (jj) first**, it is colocated with git.
 - **Nix Flakes**: Prefer modern Nix Flake commands (`nix build`, `nix flake check`, `nix run`, ...) over legacy commands.
 - **Direnv**: The workspace uses `direnv`. If you modify the flake devShell, make sure to reload the environment using `direnv allow`.
 
+## Adding Flake Inputs
+
+When adding or modifying flake inputs in `flake.nix`, strictly follow these rules to maintain a lean, deduped lockfile:
+
+1. **Ordering by Significance**:
+   - Inputs must be ordered inversely by significance: **least significant/most volatile** inputs (e.g., apps, git-hooks) go at the TOP. **Most fundamental/stable** inputs (e.g., `flake-parts`, `nixpkgs`) go at the BOTTOM.
+   - This exact same ordering applies to the `.follows` declarations inside each block.
+
+2. **Discovering Real Dependencies**:
+   - NEVER guess or hallucinate a flake's dependencies!
+   - You MUST run `nix flake metadata <flake-url>` and read the `Inputs:` section at the bottom of the output to discover its true dependencies. Do not use `nix flake show` for this, as it evaluates outputs, not inputs.
+
+3. **Shared vs Non-Shared Dependencies**:
+   - **Shared (Deduplicate & Pin)**: If a dependency (like `flake-compat` or `nixpkgs`) is used by _multiple_ flakes in our config, or if the user explicitly added it to the top-level inputs, you must add it to the top-level `inputs` block and use `inputs.<name>.follows = "<shared-name>";` inside the consuming flakes to pin them to the exact same version.
+   - **Non-Shared (Comment Out)**: If a dependency is ONLY used by the flake you are currently adding, do NOT pollute the top-level config with it! Instead, write the follows syntax inside the block but **comment it out** so we have a documented record of it (e.g., `# inputs.non-shared-dep.follows = "non-shared-dep";`).
+
 ## Agent Checklist
 
 Before finishing a task, verify:
