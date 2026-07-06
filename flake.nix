@@ -1,5 +1,15 @@
 {
   inputs = {
+    git-hooks = {
+      url = "github:cachix/git-hooks.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
@@ -13,10 +23,10 @@
     flake-parts.lib.mkFlake {inherit inputs;} {
       systems = ["x86_64-linux"];
 
-      perSystem = {pkgs, ...}: {
-        devShells.default = pkgs.mkShell {
-          packages = [pkgs.mcp-nixos];
-        };
-      };
+      imports = [
+        ./parts/formatter.nix
+        ./parts/checks.nix
+        ./parts/devShells.nix
+      ];
     };
 }
