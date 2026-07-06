@@ -16,6 +16,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    import-tree.url = "github:denful/import-tree";
+
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
@@ -25,15 +27,13 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   };
 
-  outputs = {flake-parts, ...} @ inputs:
+  outputs = {
+    import-tree,
+    flake-parts,
+    ...
+  } @ inputs:
     flake-parts.lib.mkFlake {inherit inputs;} {
       systems = ["x86_64-linux"];
-
-      imports = [
-        ./parts/checks.nix
-        ./parts/formatter.nix
-        ./parts/devShells.nix
-        ./parts/nixosConfigurations.nix
-      ];
+      imports = [(import-tree ./parts)];
     };
 }
