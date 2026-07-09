@@ -1,9 +1,15 @@
 _: {
   imports = [./disks.nix];
 
-  boot.loader.grub = {
-    enable = true;
-    device = "nodev";
+  networking.hostName = "laptop";
+
+  modules = {
+    users.verz.enable = true;
+
+    boot.grub.enable = true;
+    networking.networkmanager.enable = true;
+
+    nix.enable = true;
   };
 
   hardware.facter.reportPath = ./hardware.json;
