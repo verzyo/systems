@@ -6,6 +6,8 @@ _: {
   modules = {
     users.verz.enable = true;
 
+    desktop.niri.enable = true;
+
     boot.grub.enable = true;
     networking.networkmanager.enable = true;
 

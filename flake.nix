@@ -1,5 +1,13 @@
 {
   inputs = {
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        nixpkgs-stable.follows = "nixpkgs-stable";
+      };
+    };
+
     git-hooks = {
       url = "github:cachix/git-hooks.nix";
       # inputs.flake-compat.follows = "flake-compat";
