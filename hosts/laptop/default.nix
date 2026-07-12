@@ -6,7 +6,14 @@ _: {
   modules = {
     users.verz.enable = true;
 
-    desktop.niri.enable = true;
+    desktop = {
+      niri.enable = true;
+
+      greetd = {
+        enable = true;
+        autoLoginUser = "verz";
+      };
+    };
 
     boot.grub.enable = true;
     networking.networkmanager.enable = true;
