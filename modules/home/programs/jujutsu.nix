@@ -8,6 +8,8 @@
       enable = true;
 
       settings = {
+        ui.default-command = "status";
+
         user = {
           name = "verzyo";
           email = "279150665+verzyo@users.noreply.github.com";
