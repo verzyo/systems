@@ -12,7 +12,7 @@ in {
   flake.nixosConfigurations = lib.genAttrs hostnames (
     hostname:
       inputs.nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
+        specialArgs = {inherit inputs self;};
 
         modules = [
           "${self}/hosts/${hostname}"

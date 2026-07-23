@@ -1,4 +1,6 @@
 {
+  inputs,
+  self,
   lib,
   config,
   ...
@@ -16,6 +18,13 @@
 
       initialPassword = "verz";
       isNormalUser = true;
+    };
+
+    home-manager.users.verz = lib.mkIf config.modules.home-manager.enable {
+      imports = [
+        "${self}/users/verz"
+        (inputs.import-tree "${self}/modules/home")
+      ];
     };
   };
 
