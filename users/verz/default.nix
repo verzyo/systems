@@ -1,5 +1,8 @@
 _: {
-  modules.programs.foot.enable = true;
+  modules.programs = {
+    foot.enable = true;
+    jujutsu.enable = true;
+  };
 
   home = {
     username = "verz";
