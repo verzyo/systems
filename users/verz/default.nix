@@ -1,7 +1,9 @@
 _: {
   modules.programs = {
     foot.enable = true;
+
     jujutsu.enable = true;
+    direnv.enable = true;
   };
 
   home = {
