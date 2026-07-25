@@ -1,0 +1,89 @@
+(defcfg
+  concurrent-tap-hold yes
+)
+
+(defsrc
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  del
+  `    1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft <    z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt                spc            ralt rctl      up
+                                                         left down rght
+)
+
+(defalias
+  ;; --- PRIMARY
+  grv (t! taphold ` (layer-while-held switcher))
+
+  a (t! charmod a MetaLeft)
+  s (t! charmod s AltLeft)
+  d (t! charmod d ShiftLeft)
+  f (t! charmod f ControlLeft)
+
+  j (t! charmod j ControlRight)
+  k (t! charmod k ShiftRight)
+  l (t! charmod l AltRight)
+  ; (t! charmod ; MetaRight)
+
+  spc (t! charmod Space (layer-while-held secondary))
+
+  ;; --- SECONDARY
+  rwd (t! taphold MediaTrackRewind MediaTrackPrevious)
+  pp MediaPlayPause
+  fwd (t! taphold MediaTrackForward MediaTrackNext)
+)
+
+(deflayer primary
+  XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+  @grv 1    2    3    4    5    6    7    8    9    0    -    =    XX
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  esc  @a   @s   @d   @f   g    h    @j   @k   @l   @;   '    ret
+  lsft lsft z    x    c    v    b    n    m    ,    .    /    caps
+  XX   XX   XX                  @spc           XX   XX        XX
+                                                         XX   XX   XX
+)
+
+(deflayer secondary
+  XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+  XX   f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  XX
+  XX   mvol @rwd @pp  @fwd volu mmic home end  brdn brup XX   XX   XX
+  XX   @a   @s   @d   @f   vold left down up   rght XX   XX   XX
+  XX   XX   XX   XX   XX   XX   XX   bspc del  XX   XX   XX   XX
+  XX   XX   XX                  @spc           XX   XX        XX
+                                                         XX   XX   XX
+)
+
+(deflayermap switcher
+  1 (layer-switch primary)
+  2 (layer-switch qwerty)
+)
+
+(deflayermap qwerty
+  ` @grv
+)
+
+(defvar
+  tap-time 200
+  hold-time 300
+  typing-timeout 250
+)
+
+(deftemplate charmod (char mod)
+  (switch
+    ((key-timing 3 less-than $typing-timeout)) $char break
+    () (tap-hold-release-timeout $tap-time $hold-time $char $mod $mod) break
+  )
+)
+
+(deftemplate taphold (tap hold)
+  (tap-hold $tap-time $hold-time $tap $hold)
+)
+
+(deflocalkeys-linux
+  MediaTrackRewind 168
+  MediaTrackForward 208
+
+  mvol 113
+  mmic 248
+)

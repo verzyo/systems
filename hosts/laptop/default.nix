@@ -15,6 +15,8 @@ _: {
       };
     };
 
+    services.kanata.enable = true;
+
     boot.grub.enable = true;
     networking.networkmanager.enable = true;
 
