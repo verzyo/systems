@@ -1,12 +1,17 @@
 {
   inputs,
-  self,
+  pkgs,
   lib,
+  self,
   config,
   ...
 }: {
   config = lib.mkIf config.modules.users.verz.enable {
+    programs.fish.enable = true;
+
     users.users.verz = {
+      shell = pkgs.fish;
+
       extraGroups =
         [
           "video"
