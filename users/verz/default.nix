@@ -3,7 +3,9 @@ _: {
     foot.enable = true;
 
     jujutsu.enable = true;
+
     direnv.enable = true;
+    fish.enable = true;
   };
 
   home = {
