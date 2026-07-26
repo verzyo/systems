@@ -1,11 +1,15 @@
 _: {
-  modules.programs = {
-    foot.enable = true;
+  modules = {
+    programs = {
+      foot.enable = true;
 
-    jujutsu.enable = true;
+      jujutsu.enable = true;
 
-    direnv.enable = true;
-    fish.enable = true;
+      direnv.enable = true;
+      fish.enable = true;
+    };
+
+    desktop.niri.enable = true;
   };
 
   home = {
