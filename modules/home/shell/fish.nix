@@ -7,14 +7,18 @@
     programs.fish = {
       enable = true;
 
-      interactiveShellInit = ''
-        set fish_greeting
+      interactiveShellInit =
+        ''
+          set fish_greeting
 
-        fish_vi_key_bindings
+          fish_vi_key_bindings
 
-        bind -M insert ctrl-backspace backward-kill-word
-        bind -M insert ctrl-delete kill-word
-      '';
+          bind -M insert ctrl-backspace backward-kill-word
+          bind -M insert ctrl-delete kill-word
+        ''
+        + lib.optionalString config.programs.jujutsu.enable ''
+          ${lib.getExe config.programs.jujutsu.package} util completion fish | source
+        '';
     };
   };
 
