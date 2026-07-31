@@ -57,7 +57,7 @@
         "Mod+F" = {action.maximize-column = {};};
         "Mod+Alt+F" = {action.fullscreen-window = {};};
         "Mod+R" = {action.switch-preset-column-width = {};};
-        "Mod+Q" = {action.close-window = {};};
+        "Mod+W" = {action.close-window = {};};
 
         "Mod+H" = {action.focus-column-left = {};};
         "Mod+L" = {action.focus-column-right = {};};
@@ -132,6 +132,8 @@
           action.spawn = [playerctl "stop"];
         };
       };
+
+      prefer-no-csd = true;
     };
   };
 
