@@ -8,7 +8,10 @@ _: {
       direnv.enable = true;
     };
 
-    shell.fish.enable = true;
+    shell = {
+      starship.enable = true;
+      fish.enable = true;
+    };
 
     desktop.niri.enable = true;
   };
