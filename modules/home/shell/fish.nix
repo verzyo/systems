@@ -3,7 +3,7 @@
   config,
   ...
 }: {
-  config = lib.mkIf config.modules.programs.fish.enable {
+  config = lib.mkIf config.modules.shell.fish.enable {
     programs.fish = {
       enable = true;
 
@@ -22,5 +22,5 @@
     };
   };
 
-  options.modules.programs.fish.enable = lib.mkEnableOption "fish module";
+  options.modules.shell.fish.enable = lib.mkEnableOption "fish module";
 }

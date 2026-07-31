@@ -6,8 +6,9 @@ _: {
       jujutsu.enable = true;
 
       direnv.enable = true;
-      fish.enable = true;
     };
+
+    shell.fish.enable = true;
 
     desktop.niri.enable = true;
   };
