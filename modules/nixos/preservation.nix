@@ -9,6 +9,8 @@ in {
   imports = [inputs.preservation.nixosModules.preservation];
 
   config = lib.mkIf cfg.enable {
+    users.mutableUsers = false;
+
     preservation = {
       enable = true;
 

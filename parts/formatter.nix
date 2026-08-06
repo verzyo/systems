@@ -13,7 +13,7 @@
 
         prettier = {
           enable = true;
-          includes = ["*.json" "*.md"];
+          includes = ["*.json" "*.yaml" "*.md"];
         };
       };
     };

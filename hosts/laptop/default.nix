@@ -4,8 +4,6 @@ _: {
   networking.hostName = "laptop";
 
   modules = {
-    users.verz.enable = true;
-
     desktop = {
       niri.enable = true;
 
@@ -16,6 +14,16 @@ _: {
     };
 
     services.kanata.enable = true;
+
+    users = {
+      verz.enable = true;
+      root.enable = true;
+    };
+
+    sops = {
+      enable = true;
+      secretsFile = ./secrets.json;
+    };
 
     boot.grub.enable = true;
     networking.networkmanager.enable = true;
