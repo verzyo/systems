@@ -20,6 +20,9 @@
 
     services.resolved.enable = true;
 
+    systemd.services.NetworkManager-wait-online.enable = false;
+    networking.dhcpcd.enable = false;
+
     preservation = lib.mkIf config.modules.preservation.enable {
       preserveAt."/${config.modules.preservation.preservedSubvolume}".directories = [
         "/var/lib/iwd"
