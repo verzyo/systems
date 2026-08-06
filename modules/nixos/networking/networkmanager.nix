@@ -19,6 +19,14 @@
     };
 
     services.resolved.enable = true;
+
+    preservation = lib.mkIf config.modules.preservation.enable {
+      preserveAt."/${config.modules.preservation.preservedSubvolume}".directories = [
+        "/var/lib/iwd"
+        "/var/lib/NetworkManager"
+        "/etc/NetworkManager/system-connections"
+      ];
+    };
   };
 
   options.modules.networking.networkmanager.enable = lib.mkEnableOption "networkmanager module";
