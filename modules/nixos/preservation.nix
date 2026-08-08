@@ -9,8 +9,6 @@ in {
   imports = [inputs.preservation.nixosModules.preservation];
 
   config = lib.mkIf cfg.enable {
-    users.mutableUsers = false;
-
     preservation = {
       enable = true;
 
@@ -81,6 +79,9 @@ in {
         '';
       };
     };
+
+    users.mutableUsers = false;
+    security.sudo.extraConfig = "Defaults lecture = never";
   };
 
   options.modules.preservation = {
