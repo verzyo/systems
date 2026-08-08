@@ -12,16 +12,21 @@
         dns = "systemd-resolved";
       };
 
-      wireless.iwd.settings.General = {
-        AddressRandomization = "network";
-        AddressRandomizationRange = "full";
+      wireless.iwd.settings = {
+        General = {
+          AddressRandomization = "network";
+          AddressRandomizationRange = "full";
+        };
+        DriverQuirks = {
+          DefaultInterface = true;
+        };
       };
     };
 
     services.resolved.enable = true;
+    networking.dhcpcd.enable = false;
 
     systemd.services.NetworkManager-wait-online.enable = false;
-    networking.dhcpcd.enable = false;
 
     preservation = lib.mkIf config.modules.preservation.enable {
       preserveAt."/${config.modules.preservation.preservedSubvolume}".directories = [
