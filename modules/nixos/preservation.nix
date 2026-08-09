@@ -89,7 +89,7 @@ in {
 
     rootPartitionPath = lib.mkOption {
       type = lib.types.str;
-      description = "The root partition /dev/disk/by-id identifier";
+      description = "The root partition /dev/disk/by-id/ or /dev/mapper/ identifier";
     };
 
     rootSubvolume = lib.mkOption {

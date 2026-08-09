@@ -5,17 +5,30 @@
 }: let
   # ls -l /dev/disk/by-id
   device = "/dev/disk/by-id/nvme-CT1000P2SSD8_2130E5BB2322"; #FIXME
+  luksDeviceName = "crypted"; #FIXME can be anything
 
   preservation = config.modules.preservation;
 in {
   imports = [inputs.disko.nixosModules.disko];
 
+  #FIXME
   modules.preservation = {
     enable = true;
-    rootPartitionPath = "${device}-part2"; #FIXME
+
+    rootPartitionPath = "/dev/mapper/${luksDeviceName}";
+    #rootPartitionPath = "${device}-part2";
 
     preservedSubvolume = "pres";
     snapshotSubvolume = "snap";
+  };
+
+  # zram swap
+  zramSwap.enable = true;
+
+  # required for TPM unlocking
+  boot.initrd = {
+    systemd.enable = true;
+    luks.devices.${luksDeviceName}.crypttabExtraOpts = ["tpm2-device=auto"];
   };
 
   disko.devices.disk.main = {
@@ -26,11 +39,12 @@ in {
     content = {
       type = "gpt";
 
-      # boot partitions, 1GB at the start
       partitions = {
+        # boot partition, 1GB at the start
         EFI = {
           size = "1G";
           type = "EF00";
+
           priority = 1;
 
           content = {
@@ -50,30 +64,36 @@ in {
           priority = 2;
 
           content = {
-            type = "btrfs";
+            type = "luks";
+            name = luksDeviceName;
 
-            extraArgs = ["-f" "-L" "NIXOS"];
+            settings.allowDiscards = true;
 
-            subvolumes = {
-              "@home" = {
-                mountpoint = "/home";
-                mountOptions = ["compress=zstd" "noatime"];
-              };
-              "@${preservation.preservedSubvolume}" = {
-                mountpoint = "/${preservation.preservedSubvolume}";
-                mountOptions = ["compress=zstd" "noatime"];
-              };
-              "@${preservation.snapshotSubvolume}" = {
-                mountpoint = "/${preservation.snapshotSubvolume}";
-                mountOptions = ["compress=zstd" "noatime"];
-              };
-              "@nix" = {
-                mountpoint = "/nix";
-                mountOptions = ["compress=zstd" "noatime"];
-              };
-              "@root" = {
-                mountpoint = "/";
-                mountOptions = ["compress=zstd" "noatime"];
+            content = {
+              type = "btrfs";
+              extraArgs = ["-f" "-L" "NIXOS"];
+
+              subvolumes = {
+                "@home" = {
+                  mountpoint = "/home";
+                  mountOptions = ["compress=zstd" "noatime"];
+                };
+                "@${preservation.preservedSubvolume}" = {
+                  mountpoint = "/${preservation.preservedSubvolume}";
+                  mountOptions = ["compress=zstd" "noatime"];
+                };
+                "@${preservation.snapshotSubvolume}" = {
+                  mountpoint = "/${preservation.snapshotSubvolume}";
+                  mountOptions = ["compress=zstd" "noatime"];
+                };
+                "@nix" = {
+                  mountpoint = "/nix";
+                  mountOptions = ["compress=zstd" "noatime"];
+                };
+                "@root" = {
+                  mountpoint = "/";
+                  mountOptions = ["compress=zstd" "noatime"];
+                };
               };
             };
           };
@@ -81,21 +101,21 @@ in {
 
         # swap partition, takes 16GB at the very end of the disk
         swap = {
-          name = "swap";
-          type = "8200";
-
           start = "-16G";
           size = "16G";
+
+          name = "swap";
+          type = "8200";
 
           priority = 3;
 
           content = {
             type = "swap";
 
-            resumeDevice = true;
             discardPolicy = "once";
-
             extraArgs = ["-L" "SWAP"];
+
+            randomEncryption = true;
           };
         };
       };
