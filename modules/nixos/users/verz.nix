@@ -9,6 +9,8 @@
   config = lib.mkIf config.modules.users.verz.enable {
     programs.fish.enable = true;
 
+    nix.settings.trusted-users = ["verz"];
+
     users.users.verz = {
       shell = pkgs.fish;
 
