@@ -1,6 +1,7 @@
 _: {
   modules = {
     programs = {
+      zen.enable = true;
       foot.enable = true;
 
       jujutsu.enable = true;

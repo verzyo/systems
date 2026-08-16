@@ -5,11 +5,19 @@
   };
 
   inputs = {
+    zen = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs = {
+        home-manager.follows = "home-manager";
+        # nixpkgs.follows = "nixpkgs"; # zen's package.nix needs ffmpeg_9
+      };
+    };
+
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs = {
-        nixpkgs.follows = "nixpkgs";
         nixpkgs-stable.follows = "nixpkgs-stable";
+        nixpkgs.follows = "nixpkgs";
       };
     };
 
