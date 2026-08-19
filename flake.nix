@@ -17,7 +17,7 @@
       url = "github:sodiboo/niri-flake";
       inputs = {
         nixpkgs-stable.follows = "nixpkgs-stable";
-        nixpkgs.follows = "nixpkgs";
+        # nixpkgs.follows = "nixpkgs"; # niri references removed libdisplay-info_0_2
       };
     };
 
@@ -35,6 +35,16 @@
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote";
+      inputs = {
+        # inputs.crane.follows = "crane";
+        # inputs.rust-overlay.follows = "rust-overlay";
+        # inputs.pre-commit.follows = "pre-commit";
+        nixpkgs.follows = "nixpkgs";
+      };
     };
 
     sops = {

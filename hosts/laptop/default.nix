@@ -25,7 +25,7 @@ _: {
       secretsFile = ./secrets.json;
     };
 
-    boot.grub.enable = true;
+    boot.lanzaboote.enable = true;
     networking.networkmanager.enable = true;
 
     home-manager.enable = true;
