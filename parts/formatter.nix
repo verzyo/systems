@@ -6,15 +6,17 @@
       projectRootFile = "flake.nix";
 
       programs = {
-        alejandra.enable = true;
-
-        statix.enable = true;
-        deadnix.enable = true;
-
         prettier = {
           enable = true;
           includes = ["*.json" "*.yaml" "*.md"];
         };
+
+        shfmt.enable = true;
+
+        statix.enable = true;
+        deadnix.enable = true;
+
+        alejandra.enable = true;
       };
     };
   };
