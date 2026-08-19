@@ -34,5 +34,23 @@
         text = builtins.readFile "${self}/scripts/install.sh";
       });
     };
+
+    apps.cryptenroll = {
+      type = "app";
+      meta.description = "Enroll or re-enroll TPM2 for LUKS auto-unlock";
+
+      program = lib.getExe (pkgs.writeShellApplication {
+        name = "cryptenroll";
+
+        runtimeInputs = with pkgs; [
+          gum
+          jq
+          cryptsetup
+          systemd # systemd-cryptenroll
+        ];
+
+        text = builtins.readFile "${self}/scripts/cryptenroll.sh";
+      });
+    };
   };
 }
