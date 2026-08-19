@@ -2,10 +2,13 @@
   inputs,
   lib,
   config,
+  pkgs,
   ...
 }: {
   config = lib.mkIf config.modules.nix.enable {
     nix = {
+      package = pkgs.lix;
+
       gc = {
         automatic = true;
         persistent = true;
