@@ -61,6 +61,11 @@
           "browser.newtabpage.activity-stream.showSponsored" = false;
           "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
 
+          # Disable welcome screen
+          "zen.welcome-screen.seen" = true;
+          "browser.aboutwelcome.enabled" = false;
+          "browser.startup.homepage_override.mstone" = "ignore";
+
           # Force dark mode
           "ui.systemUsesDarkTheme" = 1;
           "zen.view.window.scheme" = 0;
