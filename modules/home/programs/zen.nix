@@ -60,6 +60,10 @@
           "browser.newtabpage.activity-stream.feeds.topsites" = false;
           "browser.newtabpage.activity-stream.showSponsored" = false;
           "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+
+          # Force dark mode
+          "ui.systemUsesDarkTheme" = 1;
+          "zen.view.window.scheme" = 0;
         };
       };
     };
