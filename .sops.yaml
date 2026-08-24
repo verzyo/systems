@@ -1,8 +1,6 @@
 keys:
   - &verz age1ymrvfh9xdmz5m46434hh7j54yuzqstfsa2d2ujzts88dddkw74xsca0xws
-
-  - &laptop age1xglan2vwqktlf80turxy2um8e8egw0uwp3q2x3uqe3c0cmcpkyzqyjuey3
-
+  - &laptop age1vvv44kaxxp74m69vf7twdn09heh3fcah0dpzz5dxmaaghlcadqeqj5l56c
 creation_rules:
   - path_regex: hosts/laptop/secrets.json$
     key_groups:
