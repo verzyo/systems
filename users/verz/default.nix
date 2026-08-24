@@ -14,7 +14,10 @@ _: {
       fish.enable = true;
     };
 
-    desktop.niri.enable = true;
+    desktop = {
+      quickshell.enable = true;
+      niri.enable = true;
+    };
   };
 
   home = {
