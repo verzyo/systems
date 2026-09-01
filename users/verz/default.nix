@@ -14,6 +14,8 @@ _: {
       fish.enable = true;
     };
 
+    services.cliproxyapi.enable = true;
+
     desktop = {
       quickshell.enable = true;
       niri.enable = true;

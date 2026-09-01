@@ -5,6 +5,12 @@
   };
 
   inputs = {
+    cliproxyapi = {
+      url = "github:verzyo/CLIProxyAPI-nix";
+      # inputs.flake-utils.follows = "flake-utils";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     zen = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs = {
