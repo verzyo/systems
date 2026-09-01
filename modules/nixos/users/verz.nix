@@ -34,10 +34,11 @@
         "users/verz".neededForUsers = true;
       })
       (lib.mkIf config.modules.sops.enable {
-        "management_key" = {
+        "management_pass" = {
           sopsFile = "${self}/secrets/cliproxyapi.json";
           owner = "verz";
         };
+        "proxy_key".sopsFile = "${self}/secrets/cliproxyapi.json";
       })
     ];
 

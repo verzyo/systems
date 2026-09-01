@@ -10,7 +10,7 @@
   config = lib.mkIf config.modules.services.cliproxyapi.enable {
     services.cliproxyapi = {
       enable = true;
-      managementPasswordFile = lib.mkIf osConfig.modules.sops.enable osConfig.sops.secrets."management_key".path;
+      managementPasswordFile = lib.mkIf osConfig.modules.sops.enable osConfig.sops.secrets."management_pass".path;
 
       plugins = [
         "antigravity-coding-filter"
@@ -18,9 +18,12 @@
         "quota-activation"
         "privacyfilter"
         "cpa-apply-patch"
+        "grok-manager"
       ];
 
-      settings = {
+      settings = let
+        secret = key: config.lib.cliproxyapi.injectSecret osConfig.sops.secrets.${key}.path;
+      in {
         host = "localhost";
         port = 8317;
 
@@ -33,9 +36,11 @@
             "cpa-apply-patch".enabled = true;
             "privacyfilter".enabled = true;
             "quota-activation".enabled = true;
+            "grok-manager".enabled = true;
           };
         };
 
+        api-keys = [(secret "proxy_key")];
         remote-management.disable-control-panel = false;
       };
     };
