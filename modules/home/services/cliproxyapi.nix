@@ -27,6 +27,52 @@
         host = "localhost";
         port = 8317;
 
+        oauth-model-alias = {
+          antigravity = [
+            {
+              name = "gemini-3.7-flash-high";
+              alias = "claude-haiku-4-5-20251001";
+            }
+            {
+              name = "claude-opus-4-6-thinking";
+              alias = "claude-opus-5";
+            }
+            {
+              name = "claude-opus-4-6-thinking";
+              alias = "claude-fable-5";
+            }
+          ];
+
+          xai = [
+            {
+              name = "grok-4.6";
+              alias = "claude-sonnet-5";
+            }
+          ];
+        };
+
+        oauth-excluded-models = {
+          antigravity = [
+            "gemini-3.1-flash-image"
+          ];
+
+          xai = [
+            "grok-imagine-image"
+            "grok-imagine-image-quality"
+            "grok-imagine-image-2.0"
+            "grok-imagine-video"
+            "grok-imagine-video-1.5"
+            "grok-imagine-video-1.5-preview"
+            "grok-3-mini-fast"
+            "grok-3-mini"
+            "grok-4.20-multi-agent-0309"
+            "grok-4.20-0309-non-reasoning"
+            "grok-4.20-0309-reasoning"
+            "grok-4.3"
+            "grok-build-0.1"
+          ];
+        };
+
         plugins = {
           enabled = true;
 
