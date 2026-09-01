@@ -3,6 +3,7 @@
   lib,
   config,
   pkgs,
+  self,
   ...
 }: {
   config = lib.mkIf config.modules.nix.enable {
@@ -33,6 +34,20 @@
 
       channel.enable = false;
       nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+
+      extraOptions = lib.mkIf config.modules.sops.enable ''
+        !include ${config.sops.templates."nix-access-tokens.conf".path}
+      '';
+    };
+
+    sops = lib.mkIf config.modules.sops.enable {
+      secrets."personal_access_token".sopsFile = "${self}/secrets/github.json";
+      templates."nix-access-tokens.conf" = {
+        mode = "0444";
+        content = ''
+          access-tokens = github.com=${config.sops.placeholder.personal_access_token}
+        '';
+      };
     };
 
     programs = {
