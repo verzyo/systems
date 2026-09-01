@@ -8,11 +8,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1788277642,
-        "narHash": "sha256-EfK6urvMxfXvwtXbTFF0bnIcvsVuDGK7gvBwO04P9bQ=",
+        "lastModified": 1788280691,
+        "narHash": "sha256-eQPn551jXhOOlILTYr4GkiB8IHXv55WPtnOdGsQ2GOM=",
         "owner": "verzyo",
         "repo": "CLIProxyAPI-nix",
-        "rev": "6208cd5975467c1ed2f0bab31bbd78401c3f0900",
+        "rev": "e249ff5109959233285ededf9c70880696aab856",
         "type": "github"
       },
       "original": {
