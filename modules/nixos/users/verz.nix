@@ -29,9 +29,17 @@
       isNormalUser = true;
     };
 
-    sops.secrets = lib.mkIf (config.modules.sops.hasSecret "users/verz") {
-      "users/verz".neededForUsers = true;
-    };
+    sops.secrets = lib.mkMerge [
+      (lib.mkIf (config.modules.sops.hasSecret "users/verz") {
+        "users/verz".neededForUsers = true;
+      })
+      (lib.mkIf config.modules.sops.enable {
+        "management_key" = {
+          sopsFile = "${self}/secrets/cliproxyapi.json";
+          owner = "verz";
+        };
+      })
+    ];
 
     home-manager.users.verz = lib.mkIf config.modules.home-manager.enable {
       imports = [
