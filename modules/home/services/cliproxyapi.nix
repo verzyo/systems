@@ -34,19 +34,16 @@
               alias = "claude-haiku-4-5-20251001";
             }
             {
+              name = "gemini-pro-agent";
+              alias = "claude-sonnet-5";
+            }
+            {
               name = "claude-opus-4-6-thinking";
               alias = "claude-opus-5";
             }
             {
               name = "claude-opus-4-6-thinking";
               alias = "claude-fable-5";
-            }
-          ];
-
-          xai = [
-            {
-              name = "grok-4.6";
-              alias = "claude-sonnet-5";
             }
           ];
         };
