@@ -5,6 +5,17 @@
   };
 
   inputs = {
+    llm-agents = {
+      url = "github:numtide/llm-agents.nix";
+      inputs = {
+        # bun2nix.follows = "bun2nix";
+        # systems.follows = "systems";
+        treefmt-nix.follows = "treefmt";
+        flake-parts.follows = "flake-parts";
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
+
     cliproxyapi = {
       url = "github:verzyo/CLIProxyAPI-nix";
       # inputs.flake-utils.follows = "flake-utils";

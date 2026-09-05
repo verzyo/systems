@@ -4,6 +4,9 @@ _: {
       zen.enable = true;
       foot.enable = true;
 
+      hermes-agent.enable = true;
+      claude-code.enable = true;
+
       jujutsu.enable = true;
 
       direnv.enable = true;
