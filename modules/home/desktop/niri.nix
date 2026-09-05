@@ -37,10 +37,54 @@
         };
       };
 
-      layout.preset-column-widths = [
-        {proportion = 1. / 3.;}
-        {proportion = 1. / 2.;}
-        {proportion = 2. / 3.;}
+      layout = {
+        preset-column-widths = [
+          {proportion = 1. / 3.;}
+          {proportion = 1. / 2.;}
+          {proportion = 2. / 3.;}
+        ];
+
+        empty-workspace-above-first = true;
+        always-center-single-column = false;
+        center-focused-column = "never";
+
+        background-color = "transparent";
+        shadow.enable = false;
+
+        border = {
+          enable = true;
+          width = 3;
+
+          active.color = "#FFFFFF";
+          inactive.color = "#808080";
+        };
+
+        focus-ring.enable = false;
+      };
+
+      overview.workspace-shadow.enable = false;
+
+      window-rules = [
+        {
+          draw-border-with-background = false;
+          clip-to-geometry = true;
+
+          geometry-corner-radius = let
+            r = 12.0;
+          in {
+            top-left = r;
+            top-right = r;
+            bottom-left = r;
+            bottom-right = r;
+          };
+        }
+      ];
+
+      layer-rules = [
+        {
+          matches = [{namespace = "wallpaper";}];
+          place-within-backdrop = true;
+        }
       ];
 
       binds = let
