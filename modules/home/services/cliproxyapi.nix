@@ -99,7 +99,7 @@
           };
         };
 
-        api-keys = [(secret "proxy_key")];
+        api-keys = lib.optional osConfig.modules.sops.enable (secret "proxy_key");
         remote-management.disable-control-panel = false;
       };
     };
