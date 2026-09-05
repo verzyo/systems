@@ -30,11 +30,11 @@
         oauth-model-alias = {
           antigravity = [
             {
-              name = "gemini-3.7-flash-high";
+              name = "gemini-3.1-flash-lite";
               alias = "claude-haiku-4-5-20251001";
             }
             {
-              name = "gemini-pro-agent";
+              name = "gemini-3.8-flash-high";
               alias = "claude-sonnet-5";
             }
             {
@@ -44,6 +44,22 @@
             {
               name = "claude-opus-4-6-thinking";
               alias = "claude-fable-5";
+            }
+            {
+              name = "gemini-3.8-flash-high";
+              alias = "claude-3-7-sonnet-20250219";
+            }
+            {
+              name = "gemini-3.8-flash-high";
+              alias = "claude-3-5-sonnet-20241022";
+            }
+            {
+              name = "gemini-3.1-flash-lite";
+              alias = "claude-3-5-haiku-20241022";
+            }
+            {
+              name = "claude-opus-4-6-thinking";
+              alias = "claude-3-opus-20240229";
             }
           ];
         };
