@@ -1,5 +1,6 @@
 {
   inputs,
+  pkgs,
   lib,
   config,
   osConfig,
@@ -10,6 +11,16 @@
   config = lib.mkIf config.modules.services.cliproxyapi.enable {
     services.cliproxyapi = {
       enable = true;
+      package = inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.cli-proxy-api.overrideAttrs (_oldAttrs: {
+        src = pkgs.fetchFromGitHub {
+          owner = "kaitranntt";
+          repo = "CLIProxyAPIPlus";
+          rev = "main";
+          hash = "sha256-T4SmrOM98U4WoDM1U01OFEd9LvfVRf+dTa+Z+FQH2AM=";
+        };
+        vendorHash = "sha256-OwbE1gz2Kc/bbobk2sDeyWmdweGJvOrDJWVsszKxYrk=";
+      });
+
       managementPasswordFile = lib.mkIf osConfig.modules.sops.enable osConfig.sops.secrets."management_pass".path;
 
       plugins = [
