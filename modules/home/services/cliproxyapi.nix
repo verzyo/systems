@@ -9,17 +9,22 @@
   imports = [inputs.cliproxyapi.homeModules.cliproxyapi];
 
   config = lib.mkIf config.modules.services.cliproxyapi.enable {
-    services.cliproxyapi = {
+    services.cliproxyapi = let
+      secret = key: config.lib.cliproxyapi.injectSecret osConfig.sops.secrets.${key}.path;
+    in {
       enable = true;
-      package = inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.cli-proxy-api.overrideAttrs (_oldAttrs: {
-        src = pkgs.fetchFromGitHub {
-          owner = "kaitranntt";
-          repo = "CLIProxyAPIPlus";
-          rev = "main";
-          hash = "sha256-T4SmrOM98U4WoDM1U01OFEd9LvfVRf+dTa+Z+FQH2AM=";
-        };
-        vendorHash = "sha256-OwbE1gz2Kc/bbobk2sDeyWmdweGJvOrDJWVsszKxYrk=";
-      });
+      package =
+        inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.cli-proxy-api.overrideAttrs
+        (_oldAttrs: {
+          src = pkgs.fetchFromGitHub {
+            owner = "kaitranntt";
+            repo = "CLIProxyAPIPlus";
+            rev = "main";
+            hash = "sha256-T4SmrOM98U4WoDM1U01OFEd9LvfVRf+dTa+Z+FQH2AM=";
+          };
+
+          vendorHash = "sha256-OwbE1gz2Kc/bbobk2sDeyWmdweGJvOrDJWVsszKxYrk=";
+        });
 
       managementPasswordFile = lib.mkIf osConfig.modules.sops.enable osConfig.sops.secrets."management_pass".path;
 
@@ -32,9 +37,7 @@
         "grok-manager"
       ];
 
-      settings = let
-        secret = key: config.lib.cliproxyapi.injectSecret osConfig.sops.secrets.${key}.path;
-      in {
+      settings = {
         host = "localhost";
         port = 8317;
 
@@ -113,6 +116,16 @@
         api-keys = lib.optional osConfig.modules.sops.enable (secret "proxy_key");
         remote-management.disable-control-panel = false;
       };
+
+      oauth = [
+        {
+          disabled = false;
+          type = "antigravity";
+          project_id = "aicode-consumers";
+          email = secret "oauth/antigravity/free1/email";
+          refresh_token = secret "oauth/antigravity/free1/refresh_token";
+        }
+      ];
     };
   };
 

@@ -39,6 +39,15 @@
           owner = "verz";
         };
         "proxy_key".sopsFile = "${self}/secrets/cliproxyapi.json";
+
+        "oauth/antigravity/free1/email" = {
+          sopsFile = "${self}/secrets/cliproxyapi.json";
+          owner = "verz";
+        };
+        "oauth/antigravity/free1/refresh_token" = {
+          sopsFile = "${self}/secrets/cliproxyapi.json";
+          owner = "verz";
+        };
       })
     ];
 
