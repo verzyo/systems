@@ -4,8 +4,8 @@ _: {
       zen.enable = true;
       foot.enable = true;
 
-      hermes-agent.enable = true;
       claude-code.enable = true;
+      hermes-agent.enable = true;
 
       jujutsu.enable = true;
 
@@ -17,7 +17,10 @@ _: {
       fish.enable = true;
     };
 
-    services.cliproxyapi.enable = true;
+    services = {
+      hermes-agent.enable = true;
+      cliproxyapi.enable = true;
+    };
 
     desktop = {
       quickshell.enable = true;
