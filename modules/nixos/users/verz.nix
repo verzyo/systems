@@ -40,11 +40,51 @@
         };
         "proxy_key".sopsFile = "${self}/secrets/cliproxyapi.json";
 
+        "oauth/antigravity/paid1/email" = {
+          sopsFile = "${self}/secrets/cliproxyapi.json";
+          owner = "verz";
+        };
+        "oauth/antigravity/paid1/refresh_token" = {
+          sopsFile = "${self}/secrets/cliproxyapi.json";
+          owner = "verz";
+        };
         "oauth/antigravity/free1/email" = {
           sopsFile = "${self}/secrets/cliproxyapi.json";
           owner = "verz";
         };
         "oauth/antigravity/free1/refresh_token" = {
+          sopsFile = "${self}/secrets/cliproxyapi.json";
+          owner = "verz";
+        };
+        "oauth/antigravity/free2/email" = {
+          sopsFile = "${self}/secrets/cliproxyapi.json";
+          owner = "verz";
+        };
+        "oauth/antigravity/free2/refresh_token" = {
+          sopsFile = "${self}/secrets/cliproxyapi.json";
+          owner = "verz";
+        };
+        "oauth/antigravity/free3/email" = {
+          sopsFile = "${self}/secrets/cliproxyapi.json";
+          owner = "verz";
+        };
+        "oauth/antigravity/free3/refresh_token" = {
+          sopsFile = "${self}/secrets/cliproxyapi.json";
+          owner = "verz";
+        };
+        "oauth/antigravity/free4/email" = {
+          sopsFile = "${self}/secrets/cliproxyapi.json";
+          owner = "verz";
+        };
+        "oauth/antigravity/free4/refresh_token" = {
+          sopsFile = "${self}/secrets/cliproxyapi.json";
+          owner = "verz";
+        };
+        "oauth/antigravity/free5/email" = {
+          sopsFile = "${self}/secrets/cliproxyapi.json";
+          owner = "verz";
+        };
+        "oauth/antigravity/free5/refresh_token" = {
           sopsFile = "${self}/secrets/cliproxyapi.json";
           owner = "verz";
         };
