@@ -153,13 +153,6 @@
           email = secret "oauth/antigravity/free4/email";
           refresh_token = secret "oauth/antigravity/free4/refresh_token";
         }
-        {
-          disabled = false;
-          type = "antigravity";
-          project_id = "aicode-consumers";
-          email = secret "oauth/antigravity/free5/email";
-          refresh_token = secret "oauth/antigravity/free5/refresh_token";
-        }
       ];
     };
   };

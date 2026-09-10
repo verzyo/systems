@@ -80,14 +80,6 @@
           sopsFile = "${self}/secrets/cliproxyapi.json";
           owner = "verz";
         };
-        "oauth/antigravity/free5/email" = {
-          sopsFile = "${self}/secrets/cliproxyapi.json";
-          owner = "verz";
-        };
-        "oauth/antigravity/free5/refresh_token" = {
-          sopsFile = "${self}/secrets/cliproxyapi.json";
-          owner = "verz";
-        };
       })
     ];
 
