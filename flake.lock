@@ -55,6 +55,22 @@
         "type": "github"
       }
     },
+    "cliproxyapi-plus": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1789107773,
+        "narHash": "sha256-G0L9an+gNtEgkTKcsm/Sw84SP+9rFTzenc7nis+r6Kg=",
+        "owner": "jc01rho",
+        "repo": "CLIProxyAPIPlus",
+        "rev": "7f75ba94917647164807028fdd6d988d5aebd744",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jc01rho",
+        "repo": "CLIProxyAPIPlus",
+        "type": "github"
+      }
+    },
     "crane": {
       "locked": {
         "lastModified": 1787326676,
@@ -528,6 +544,7 @@
     "root": {
       "inputs": {
         "cliproxyapi": "cliproxyapi",
+        "cliproxyapi-plus": "cliproxyapi-plus",
         "disko": "disko",
         "flake-parts": "flake-parts",
         "git-hooks": "git-hooks",

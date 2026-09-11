@@ -29,6 +29,11 @@
       };
     };
 
+    cliproxyapi-plus = {
+      url = "github:jc01rho/CLIProxyAPIPlus";
+      flake = false;
+    };
+
     cliproxyapi = {
       url = "github:verzyo/CLIProxyAPI-nix";
       # inputs.flake-utils.follows = "flake-utils";
