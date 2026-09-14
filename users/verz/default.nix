@@ -1,15 +1,16 @@
 _: {
   modules = {
     programs = {
-      zen.enable = true;
-      foot.enable = true;
-
       claude-code.enable = true;
       hermes-agent.enable = true;
 
-      jujutsu.enable = true;
+      zen.enable = true;
+      foot.enable = true;
+
+      neovim.enable = true;
 
       direnv.enable = true;
+      jujutsu.enable = true;
     };
 
     shell = {
