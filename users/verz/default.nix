@@ -21,6 +21,8 @@ _: {
     services = {
       hermes-agent.enable = true;
       cliproxyapi.enable = true;
+
+      syncthing.enable = true;
     };
 
     desktop = {
