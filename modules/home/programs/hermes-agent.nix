@@ -11,6 +11,10 @@
       pkgs.ungoogled-chromium
       pkgs.ripgrep
       pkgs.ast-grep
+      pkgs.jq
+      pkgs.gh
+      pkgs.fd
+      pkgs.fzf
     ];
 
     home.sessionVariables."SEARXNG_URL" = "http://127.0.0.1:8888";

@@ -13,6 +13,10 @@
       ungoogled-chromium
       ripgrep
       ast-grep
+      jq
+      gh
+      fd
+      fzf
     ];
 
     services.hermes-agent = {
@@ -22,6 +26,14 @@
       environmentFiles = lib.optional osConfig.modules.sops.enable osConfig.sops.templates."hermes-github-env".path;
 
       environment.SEARXNG_URL = "http://127.0.0.1:8888";
+      extraPackages = with pkgs; [
+        ripgrep
+        ast-grep
+        jq
+        gh
+        fd
+        fzf
+      ];
 
       settings = let
         cliproxyapi = config.services.cliproxyapi.settings;
@@ -33,7 +45,24 @@
           default = "gemini-3.8-flash-high";
         };
 
-        web.search_backend = "searxng";
+        web = {
+          search_backend = "searxng";
+          extract_char_limit = 50000;
+        };
+
+        compression = {
+          enabled = true;
+          threshold = 0.5;
+          target_ratio = 0.2;
+        };
+
+        curator = {
+          enabled = true;
+        };
+
+        checkpoints = {
+          enabled = true;
+        };
       };
 
       backend.mode = "dashboard";

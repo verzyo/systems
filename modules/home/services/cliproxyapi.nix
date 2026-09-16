@@ -222,7 +222,7 @@
         api-keys = lib.optional osConfig.modules.sops.enable (secret "proxy_key");
         remote-management.disable-control-panel = false;
       };
-      oauth = [
+      oauth = lib.optionals osConfig.modules.sops.enable [
         {
           disabled = false;
           type = "antigravity";
