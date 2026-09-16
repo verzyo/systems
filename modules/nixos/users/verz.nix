@@ -83,6 +83,16 @@
       })
     ];
 
+    sops.templates = lib.mkIf config.modules.sops.enable {
+      "hermes-github-env" = {
+        owner = "verz";
+        mode = "0400";
+        content = ''
+          GITHUB_TOKEN=${config.sops.placeholder.personal_access_token}
+        '';
+      };
+    };
+
     home-manager.users.verz = lib.mkIf config.modules.home-manager.enable {
       imports = [
         "${self}/users/verz"

@@ -3,18 +3,25 @@
   pkgs,
   lib,
   config,
+  osConfig,
   ...
 }: {
   imports = [inputs.hermes-agent.homeManagerModules.default];
 
   config = lib.mkIf config.modules.services.hermes-agent.enable {
+    home.packages = with pkgs; [
+      ungoogled-chromium
+      ripgrep
+      ast-grep
+    ];
+
     services.hermes-agent = {
       enable = true;
       package = inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.hermes-agent;
 
-      environment = {
-        SEARXNG_URL = "http://127.0.0.1:8888";
-      };
+      environmentFiles = lib.optional osConfig.modules.sops.enable osConfig.sops.templates."hermes-github-env".path;
+
+      environment.SEARXNG_URL = "http://127.0.0.1:8888";
 
       settings = let
         cliproxyapi = config.services.cliproxyapi.settings;
@@ -22,12 +29,11 @@
         model = {
           provider = "custom";
           base_url = "http://${cliproxyapi.host}:${builtins.toString cliproxyapi.port}/v1";
-          default = "claude-sonnet-5";
+
+          default = "gemini-3.8-flash-high";
         };
 
-        web = {
-          search_backend = "searxng";
-        };
+        web.search_backend = "searxng";
       };
 
       backend.mode = "dashboard";
