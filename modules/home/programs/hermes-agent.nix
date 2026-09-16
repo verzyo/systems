@@ -13,6 +13,7 @@
       pkgs.clang-tools
       pkgs.pyright
       pkgs.poppler-utils
+      pkgs.ungoogled-chromium
     ];
 
     home.sessionVariables = {
