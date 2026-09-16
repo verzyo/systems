@@ -12,6 +12,10 @@
       enable = true;
       package = inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.hermes-agent;
 
+      environment = {
+        SEARXNG_URL = "http://127.0.0.1:8888";
+      };
+
       settings = let
         cliproxyapi = config.services.cliproxyapi.settings;
       in {
@@ -19,6 +23,10 @@
           provider = "custom";
           base_url = "http://${cliproxyapi.host}:${builtins.toString cliproxyapi.port}/v1";
           default = "claude-sonnet-5";
+        };
+
+        web = {
+          search_backend = "searxng";
         };
       };
 

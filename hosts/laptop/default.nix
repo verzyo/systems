@@ -13,7 +13,10 @@ _: {
       };
     };
 
-    services.kanata.enable = true;
+    services = {
+      kanata.enable = true;
+      searx.enable = true;
+    };
 
     users = {
       verz.enable = true;
