@@ -78,6 +78,10 @@
             bottom-right = r;
           };
         }
+        {
+          matches = [{app-id = "foot";}];
+          default-column-width = {proportion = 1. / 2.;};
+        }
       ];
 
       layer-rules = [
