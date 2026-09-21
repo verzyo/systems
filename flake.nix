@@ -48,6 +48,11 @@
       };
     };
 
+    shell = {
+      url = "github:verzyo/shell";
+      flake = false;
+    };
+
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs = {

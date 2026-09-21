@@ -557,6 +557,7 @@
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-stable": "nixpkgs-stable",
         "preservation": "preservation",
+        "shell": "shell",
         "sops": "sops",
         "treefmt": "treefmt",
         "zen": "zen"
@@ -580,6 +581,22 @@
       "original": {
         "owner": "oxalica",
         "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
+    "shell": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1790028816,
+        "narHash": "sha256-2ewa8Hp73kkCknhSvPMtcrpv5xkbl6F7V9YOeE6+w/E=",
+        "owner": "verzyo",
+        "repo": "shell",
+        "rev": "5978c0593b737271da91291e9d990decf569262e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "verzyo",
+        "repo": "shell",
         "type": "github"
       }
     },

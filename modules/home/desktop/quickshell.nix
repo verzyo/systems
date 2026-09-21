@@ -1,12 +1,21 @@
 {
+  inputs,
   pkgs,
   lib,
   config,
   ...
 }: {
   config = lib.mkIf config.modules.desktop.quickshell.enable {
+    xdg.configFile."quickshell".source = inputs.shell;
+
+    home.packages = with pkgs; [
+      (pkgs.python3.withPackages (ps: [ps.kdl-py]))
+      sunsetr
+    ];
+
     programs.quickshell = {
       enable = true;
+      systemd.enable = true;
 
       package = pkgs.stdenv.mkDerivation {
         pname = "quickshell";
