@@ -2,7 +2,6 @@ _: {
   modules = {
     programs = {
       claude-code.enable = true;
-      hermes-agent.enable = true;
 
       zen.enable = true;
       foot.enable = true;
@@ -19,7 +18,6 @@ _: {
     };
 
     services = {
-      hermes-agent.enable = true;
       cliproxyapi.enable = true;
 
       syncthing.enable = true;
