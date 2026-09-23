@@ -14,8 +14,9 @@ _: {
     };
 
     services = {
-      kanata.enable = true;
       searx.enable = true;
+      ananicy.enable = true;
+      kanata.enable = true;
     };
 
     users = {
