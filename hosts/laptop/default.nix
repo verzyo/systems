@@ -15,7 +15,10 @@ _: {
 
     services = {
       searx.enable = true;
+
+      fstrim.enable = true;
       ananicy.enable = true;
+
       kanata.enable = true;
     };
 
