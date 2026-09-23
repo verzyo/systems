@@ -6,6 +6,11 @@
 }: {
   config = lib.mkIf config.modules.desktop.niri.enable {
     programs.niri.settings = {
+      cursor = {
+        hide-when-typing = true;
+        hide-after-inactive-ms = 5000;
+      };
+
       input = {
         focus-follows-mouse.enable = true;
 
