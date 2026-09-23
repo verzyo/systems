@@ -28,7 +28,10 @@ _: {
       secretsFile = ./secrets.json;
     };
 
-    boot.lanzaboote.enable = true;
+    boot = {
+      lanzaboote.enable = true;
+      plymouth.enable = true;
+    };
     networking.networkmanager.enable = true;
 
     home-manager.enable = true;

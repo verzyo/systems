@@ -10,7 +10,7 @@
 
       settings = {
         initial_session = lib.mkIf config.programs.niri.enable {
-          command = "${config.programs.niri.package}/bin/niri-session";
+          command = "${pkgs.systemd}/bin/systemd-cat -t niri-session ${config.programs.niri.package}/bin/niri-session";
           user = config.modules.desktop.greetd.autoLoginUser;
         };
 
