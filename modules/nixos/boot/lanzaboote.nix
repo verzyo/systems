@@ -12,11 +12,15 @@ in {
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [pkgs.sbctl];
 
-    boot.loader.efi.canTouchEfiVariables = true;
+    boot.loader = {
+      timeout = 0;
+      efi.canTouchEfiVariables = true;
+    };
 
     boot.lanzaboote = {
       enable = true;
       autoGenerateKeys.enable = true;
+      settings.console-mode = "max";
 
       autoEnrollKeys = {
         enable = true;
