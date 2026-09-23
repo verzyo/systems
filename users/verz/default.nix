@@ -26,6 +26,7 @@ _: {
     desktop = {
       quickshell.enable = true;
       niri.enable = true;
+      cursor.enable = true;
     };
   };
 
