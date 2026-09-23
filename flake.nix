@@ -106,6 +106,13 @@
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
 
+    chaotic = {
+      url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+      #inputs.flake-schemas.follows = "flake-schemas";
+      #inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
+
     nixpkgs-stable.url = "https://flakehub.com/f/NixOS/nixpkgs/*";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   };

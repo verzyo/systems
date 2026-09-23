@@ -31,6 +31,7 @@ _: {
     boot = {
       lanzaboote.enable = true;
       plymouth.enable = true;
+      kernel.enable = true;
     };
     networking.networkmanager.enable = true;
 
