@@ -50,6 +50,13 @@
       };
     };
 
+    systemd.slices."background".sliceConfig = {
+      CPUWeight = 20;
+      IOWeight = 20;
+    };
+
+    systemd.services.nix-daemon.serviceConfig.Slice = "background.slice";
+
     programs = {
       git.enable = true;
       nix-ld.enable = true;
