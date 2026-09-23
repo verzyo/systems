@@ -35,7 +35,11 @@ _: {
       kernel.enable = true;
     };
 
-    networking.networkmanager.enable = true;
+    networking = {
+      enable = true;
+      networkmanager.enable = true;
+    };
+
     memory.enable = true;
 
     home-manager.enable = true;

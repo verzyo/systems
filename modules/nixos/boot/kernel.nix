@@ -11,8 +11,6 @@
     boot = {
       kernelPackages = pkgs.linuxPackages_cachyos;
 
-      kernelModules = ["tcp_bbr"];
-
       kernelParams = [
         "preempt=full"
         "nowatchdog"
