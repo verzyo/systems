@@ -62,7 +62,10 @@
         focus-ring.enable = false;
       };
 
-      overview.workspace-shadow.enable = false;
+      overview = {
+        workspace-shadow.enable = false;
+        backdrop-color = "#000000";
+      };
 
       window-rules = [
         {
@@ -182,6 +185,7 @@
       };
 
       prefer-no-csd = true;
+      hotkey-overlay.skip-at-startup = true;
     };
   };
 
