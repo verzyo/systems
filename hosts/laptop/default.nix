@@ -34,7 +34,9 @@ _: {
       plymouth.enable = true;
       kernel.enable = true;
     };
+
     networking.networkmanager.enable = true;
+    memory.enable = true;
 
     home-manager.enable = true;
     nix.enable = true;

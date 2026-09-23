@@ -22,9 +22,6 @@ in {
     snapshotSubvolume = "snap";
   };
 
-  # zram swap
-  zramSwap.enable = true;
-
   # required for TPM unlocking
   boot.initrd = {
     systemd.enable = true;
