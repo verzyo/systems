@@ -18,6 +18,7 @@ in {
           "/var/log"
           "/var/lib/systemd/timers"
           "/var/lib/systemd/coredump"
+          "/var/lib/systemd/backlight"
         ];
 
         files = [
