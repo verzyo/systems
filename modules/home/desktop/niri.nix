@@ -192,6 +192,13 @@
       prefer-no-csd = true;
       hotkey-overlay.skip-at-startup = true;
     };
+
+    xdg.configFile.niri-config.source = lib.mkIf config.modules.desktop.matugen.enable (
+      lib.mkForce (pkgs.writeText "config.kdl" ''
+        ${config.programs.niri.finalConfig}
+        include optional=true "colors.kdl"
+      '')
+    );
   };
 
   options.modules.desktop.niri.enable = lib.mkEnableOption "niri module";

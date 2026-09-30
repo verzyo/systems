@@ -109,6 +109,22 @@
         "type": "github"
       }
     },
+    "dankmaterialshell": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1790786813,
+        "narHash": "sha256-MSU55V/ulJoLxoWW4jcYGzQ6+4wNVRUNsfILP02+new=",
+        "owner": "AvengeMedia",
+        "repo": "DankMaterialShell",
+        "rev": "adccc05397d5b2d6dac50c30ce0eabb90b19f145",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AvengeMedia",
+        "repo": "DankMaterialShell",
+        "type": "github"
+      }
+    },
     "disko": {
       "inputs": {
         "nixpkgs": [
@@ -347,6 +363,27 @@
       "original": {
         "owner": "numtide",
         "repo": "llm-agents.nix",
+        "type": "github"
+      }
+    },
+    "matugen": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "systems": "systems_3"
+      },
+      "locked": {
+        "lastModified": 1789910191,
+        "narHash": "sha256-xt16rUkAM4NztPn+eihGB0k1mChcq729jwK/0zler3c=",
+        "owner": "InioX",
+        "repo": "matugen",
+        "rev": "ca94b8b03c26199158a187f3388a0c61f8802b0e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "InioX",
+        "repo": "matugen",
         "type": "github"
       }
     },
@@ -596,6 +633,7 @@
         "chaotic": "chaotic",
         "cliproxyapi": "cliproxyapi",
         "cliproxyapi-plus": "cliproxyapi-plus",
+        "dankmaterialshell": "dankmaterialshell",
         "disko": "disko",
         "flake-parts": "flake-parts",
         "git-hooks": "git-hooks",
@@ -604,6 +642,7 @@
         "import-tree": "import-tree",
         "lanzaboote": "lanzaboote",
         "llm-agents": "llm-agents",
+        "matugen": "matugen",
         "niri": "niri",
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-stable": "nixpkgs-stable",
@@ -698,6 +737,21 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "systems_3": {
+      "locked": {
+        "lastModified": 1689347949,
+        "narHash": "sha256-12tWmuL2zgBgZkdoB6qXZsgJEH9LR3oUgpaQq2RbI80=",
+        "owner": "nix-systems",
+        "repo": "default-linux",
+        "rev": "31732fcf5e8fea42e59c2488ad31a0e651500f68",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default-linux",
         "type": "github"
       }
     },

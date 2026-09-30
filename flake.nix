@@ -5,6 +5,11 @@
   };
 
   inputs = {
+    dankmaterialshell = {
+      url = "github:AvengeMedia/DankMaterialShell";
+      flake = false;
+    };
+
     hermes-agent = {
       url = "github:NousResearch/hermes-agent";
       inputs = {
@@ -51,6 +56,12 @@
     shell = {
       url = "github:verzyo/shell";
       flake = false;
+    };
+
+    matugen = {
+      url = "github:InioX/matugen";
+      # inputs.nixpkgs.systems.follows = "systems";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     niri = {
