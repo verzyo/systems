@@ -45,6 +45,7 @@ _: {
 
     memory.enable = true;
 
+    time.enable = true;
     home-manager.enable = true;
     nix.enable = true;
   };

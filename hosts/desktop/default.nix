@@ -25,6 +25,7 @@
     boot.grub.enable = true;
     networking.networkmanager.enable = true;
 
+    time.enable = true;
     home-manager.enable = true;
     nix.enable = true;
   };
