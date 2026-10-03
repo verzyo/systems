@@ -27,6 +27,7 @@ _: {
       quickshell.enable = true;
       niri.enable = true;
       matugen.enable = true;
+      dank16.enable = true;
       cursor.enable = true;
     };
   };
