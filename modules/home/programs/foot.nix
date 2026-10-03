@@ -4,14 +4,7 @@
   ...
 }: {
   config = lib.mkIf config.modules.programs.foot.enable {
-    programs.foot = {
-      enable = true;
-
-      server = {
-        enable = true;
-        systemdTarget = "niri.service";
-      };
-    };
+    programs.foot.enable = true;
   };
 
   options.modules.programs.foot.enable = lib.mkEnableOption "foot module";

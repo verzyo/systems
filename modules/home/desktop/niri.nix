@@ -106,7 +106,7 @@
       in {
         "Mod+Return" = {
           repeat = false;
-          action.spawn = "footclient";
+          action.spawn = "foot";
         };
 
         "Mod+O" = {action.toggle-overview = {};};
