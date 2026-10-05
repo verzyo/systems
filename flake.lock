@@ -387,6 +387,22 @@
         "type": "github"
       }
     },
+    "meowtugen": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1791238103,
+        "narHash": "sha256-bWLk4AeQlfRgsN1/Ia+5gFCuP9+KesS0MDo2sATjbyk=",
+        "owner": "verzyo",
+        "repo": "meowtugen",
+        "rev": "5b59e272219ff3c3d4a3d54721aacf9fe5ebc68e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "verzyo",
+        "repo": "meowtugen",
+        "type": "github"
+      }
+    },
     "niri": {
       "inputs": {
         "niri-stable": "niri-stable",
@@ -643,6 +659,7 @@
         "lanzaboote": "lanzaboote",
         "llm-agents": "llm-agents",
         "matugen": "matugen",
+        "meowtugen": "meowtugen",
         "niri": "niri",
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-stable": "nixpkgs-stable",

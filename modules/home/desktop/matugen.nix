@@ -12,11 +12,20 @@
       config = {};
 
       templates = let
-        templates = "${inputs.dankmaterialshell}/quickshell/matugen/templates";
+        dmsTemplates = "${inputs.dankmaterialshell}/quickshell/matugen/templates";
+        meowtugenTemplates = "${inputs.meowtugen}/templates";
+
         configHome = config.xdg.configHome;
       in {
+        foot_colors.input_path = "${meowtugenTemplates}/foot/colors.ini";
+
+        foot = {
+          input_path = "${meowtugenTemplates}/foot/foot.ini";
+          output_path = "${configHome}/foot/colors.ini";
+        };
+
         niri = {
-          input_path = "${templates}/niri-colors.kdl";
+          input_path = "${dmsTemplates}/niri-colors.kdl";
           output_path = "${configHome}/niri/colors.kdl";
         };
       };

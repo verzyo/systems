@@ -5,6 +5,11 @@
   };
 
   inputs = {
+    meowtugen = {
+      url = "github:verzyo/meowtugen";
+      flake = false;
+    };
+
     dankmaterialshell = {
       url = "github:AvengeMedia/DankMaterialShell";
       flake = false;
