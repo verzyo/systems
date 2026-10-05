@@ -19,6 +19,12 @@
       in {
         foot_colors.input_path = "${meowtugenTemplates}/foot/colors.ini";
 
+        foot_reload = {
+          input_path = "${meowtugenTemplates}/foot/reload.sh";
+          output_path = "${configHome}/foot/reload.sh";
+          post_hook = "sh ${configHome}/foot/reload.sh";
+        };
+
         foot = {
           input_path = "${meowtugenTemplates}/foot/foot.ini";
           output_path = "${configHome}/foot/colors.ini";
