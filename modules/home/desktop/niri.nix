@@ -87,6 +87,10 @@
           };
         }
         {
+          matches = [{app-id = "dev.zed.Zed";}];
+          default-column-width = {proportion = 1.;};
+        }
+        {
           matches = [{app-id = "foot";}];
           default-column-width = {proportion = 1. / 2.;};
         }
