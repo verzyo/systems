@@ -23,6 +23,11 @@
           light = "Meowtugen Dark";
           dark = "Meowtugen Dark";
         };
+
+        telemetry = {
+          diganostics = false;
+          metrics = false;
+        };
       };
     };
   };
