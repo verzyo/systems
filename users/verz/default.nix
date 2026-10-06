@@ -6,6 +6,7 @@ _: {
       zen.enable = true;
       foot.enable = true;
 
+      helix.enable = true;
       neovim.enable = true;
 
       direnv.enable = true;
