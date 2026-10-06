@@ -390,11 +390,11 @@
     "meowtugen": {
       "flake": false,
       "locked": {
-        "lastModified": 1791283358,
-        "narHash": "sha256-T8hBOF/XKTtog0Mrn0j2ENYd0vUmXGL4h+iSQvzQKrU=",
+        "lastModified": 1791301311,
+        "narHash": "sha256-6+Fg800KwkYVpdI8bfnoJ3anCS1OCCmMXYfr8KAyQwM=",
         "owner": "verzyo",
         "repo": "meowtugen",
-        "rev": "7254980a183f446173f8889cfcf0bb64eb0b3d1b",
+        "rev": "294d50ad39922556de5dff9ae310ef3f86d67bcd",
         "type": "github"
       },
       "original": {

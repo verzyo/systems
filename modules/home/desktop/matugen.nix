@@ -17,6 +17,11 @@
 
         configHome = config.xdg.configHome;
       in {
+        zed = {
+          input_path = "${meowtugenTemplates}/zed.json";
+          output_path = "${configHome}/zed/themes/meowtugen.json";
+        };
+
         foot_colors.input_path = "${meowtugenTemplates}/foot/colors.ini";
 
         foot_reload = {
