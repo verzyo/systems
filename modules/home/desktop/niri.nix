@@ -91,6 +91,10 @@
           default-column-width = {proportion = 1.;};
         }
         {
+          matches = [{app-id = "zen-twilight";}];
+          default-column-width = {proportion = 1.;};
+        }
+        {
           matches = [{app-id = "foot";}];
           default-column-width = {proportion = 1. / 2.;};
         }
