@@ -109,22 +109,6 @@
         "type": "github"
       }
     },
-    "dankmaterialshell": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1790786813,
-        "narHash": "sha256-MSU55V/ulJoLxoWW4jcYGzQ6+4wNVRUNsfILP02+new=",
-        "owner": "AvengeMedia",
-        "repo": "DankMaterialShell",
-        "rev": "adccc05397d5b2d6dac50c30ce0eabb90b19f145",
-        "type": "github"
-      },
-      "original": {
-        "owner": "AvengeMedia",
-        "repo": "DankMaterialShell",
-        "type": "github"
-      }
-    },
     "disko": {
       "inputs": {
         "nixpkgs": [
@@ -142,6 +126,22 @@
       "original": {
         "owner": "nix-community",
         "repo": "disko",
+        "type": "github"
+      }
+    },
+    "dms": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1791300515,
+        "narHash": "sha256-ZPG/XLeFD1QCqgLT76m1u/5sAK2EC9afBxwQ1FyxHAw=",
+        "owner": "AvengeMedia",
+        "repo": "DankMaterialShell",
+        "rev": "9cceff29dd3cd8e4029ba6d5d52393d4c5d06704",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AvengeMedia",
+        "repo": "DankMaterialShell",
         "type": "github"
       }
     },
@@ -388,13 +388,21 @@
       }
     },
     "meowtugen": {
-      "flake": false,
+      "inputs": {
+        "dms": "dms",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "treefmt": [
+          "treefmt"
+        ]
+      },
       "locked": {
-        "lastModified": 1791301311,
-        "narHash": "sha256-6+Fg800KwkYVpdI8bfnoJ3anCS1OCCmMXYfr8KAyQwM=",
+        "lastModified": 1791306389,
+        "narHash": "sha256-eGe8hpxBn6tW3ITyQd9s+Vc5yWlxCXIUSYyttu4OvHw=",
         "owner": "verzyo",
         "repo": "meowtugen",
-        "rev": "294d50ad39922556de5dff9ae310ef3f86d67bcd",
+        "rev": "2722eeef27680af72a403c4385b22b1d08d8d674",
         "type": "github"
       },
       "original": {
@@ -649,7 +657,6 @@
         "chaotic": "chaotic",
         "cliproxyapi": "cliproxyapi",
         "cliproxyapi-plus": "cliproxyapi-plus",
-        "dankmaterialshell": "dankmaterialshell",
         "disko": "disko",
         "flake-parts": "flake-parts",
         "git-hooks": "git-hooks",

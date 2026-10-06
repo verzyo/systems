@@ -28,7 +28,7 @@ _: {
     desktop = {
       quickshell.enable = true;
       niri.enable = true;
-      matugen.enable = true;
+      meowtugen.enable = true;
       cursor.enable = true;
     };
   };

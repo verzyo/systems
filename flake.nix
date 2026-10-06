@@ -7,12 +7,11 @@
   inputs = {
     meowtugen = {
       url = "github:verzyo/meowtugen";
-      flake = false;
-    };
-
-    dankmaterialshell = {
-      url = "github:AvengeMedia/DankMaterialShell";
-      flake = false;
+      inputs = {
+        # dms.follows = "dms";
+        treefmt.follows = "treefmt";
+        nixpkgs.follows = "nixpkgs";
+      };
     };
 
     hermes-agent = {
