@@ -6,6 +6,7 @@ _: {
       zen.enable = true;
       foot.enable = true;
       zed.enable = true;
+      discord.enable = true;
 
       helix.enable = true;
       neovim.enable = true;
