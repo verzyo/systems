@@ -701,11 +701,11 @@
     "shell": {
       "flake": false,
       "locked": {
-        "lastModified": 1790028816,
-        "narHash": "sha256-2ewa8Hp73kkCknhSvPMtcrpv5xkbl6F7V9YOeE6+w/E=",
+        "lastModified": 1790777757,
+        "narHash": "sha256-KzZX8f0LnKruiSXpcYYb+K9rtLD1y9td8h25NE2XMg0=",
         "owner": "verzyo",
         "repo": "shell",
-        "rev": "5978c0593b737271da91291e9d990decf569262e",
+        "rev": "2ffc1d956b4f57f46aaaef030037e23ec3ab1e09",
         "type": "github"
       },
       "original": {
