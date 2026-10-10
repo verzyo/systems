@@ -69,7 +69,7 @@
     };
 
     niri = {
-      url = "github:sodiboo/niri-flake";
+      url = "github:epireyn/niri-flake";
       inputs = {
         nixpkgs-stable.follows = "nixpkgs-stable";
         # nixpkgs.follows = "nixpkgs"; # niri references removed libdisplay-info_0_2

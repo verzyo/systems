@@ -87,6 +87,10 @@
           };
         }
         {
+          opacity = 0.9;
+          background-effect.blur = true;
+        }
+        {
           matches = [{app-id = "dev.zed.Zed";}];
           default-column-width = {proportion = 1.;};
         }
