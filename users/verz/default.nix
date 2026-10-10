@@ -10,6 +10,7 @@ _: {
 
       helix.enable = true;
       neovim.enable = true;
+      yazi.enable = true;
 
       direnv.enable = true;
       jujutsu.enable = true;

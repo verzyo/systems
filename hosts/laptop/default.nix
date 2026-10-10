@@ -6,6 +6,7 @@ _: {
   modules = {
     desktop = {
       niri.enable = true;
+      fonts.enable = true;
 
       greetd = {
         enable = true;
