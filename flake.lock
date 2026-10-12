@@ -399,11 +399,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1791835183,
-        "narHash": "sha256-YxSIDIdjjZ2OSP9zgbl4I59YankascPVexE75DkxrxI=",
+        "lastModified": 1791841348,
+        "narHash": "sha256-a+ZiAJ9ZTUnOO4xOzNU9gOnuvCP3NxQjXYaP+Gl60EQ=",
         "owner": "verzyo",
         "repo": "meowtugen",
-        "rev": "bb698f5f3229f72d65b8d8d42219cbd8ee157b12",
+        "rev": "e99e314d049bc639d44b6bd8771aace502d74a0a",
         "type": "github"
       },
       "original": {
