@@ -14,18 +14,6 @@
       };
     };
 
-    hermes-agent = {
-      url = "github:NousResearch/hermes-agent";
-      inputs = {
-        # pyproject-build-systems.follows = "pyproject-build-systems";
-        # npm-lockfile-fix.follows = "npm-lockfile-fix";
-        # pyproject-nix.follows = "pyproject-nix";
-        # uv2nix.follows = "uv2nix";
-        flake-parts.follows = "flake-parts";
-        home-manager.follows = "home-manager";
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
 
     llm-agents = {
       url = "github:numtide/llm-agents.nix";
