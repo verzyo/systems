@@ -369,11 +369,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1791898764,
-        "narHash": "sha256-XVrEO+JJP+Np8vGwRNx2w0j8SXO5YyLA/aCbk4P2e4g=",
+        "lastModified": 1791906237,
+        "narHash": "sha256-o/bxpljBm6XZzVt64vu5kv8ev1uC5FuJ892zHbu44Cw=",
         "owner": "verzyo",
         "repo": "meowtugen",
-        "rev": "2ff9539e499efdb443fd512675faa4366d5c95ba",
+        "rev": "133144b738040312500bbcbe748ae783d155e93e",
         "type": "github"
       },
       "original": {
@@ -600,11 +600,11 @@
     "shell": {
       "flake": false,
       "locked": {
-        "lastModified": 1790777757,
-        "narHash": "sha256-KzZX8f0LnKruiSXpcYYb+K9rtLD1y9td8h25NE2XMg0=",
+        "lastModified": 1791905697,
+        "narHash": "sha256-axwl48v5nWZmVdv7pZZbkrx7knoUS5B+1g0+MZBKOgo=",
         "owner": "verzyo",
         "repo": "shell",
-        "rev": "2ffc1d956b4f57f46aaaef030037e23ec3ab1e09",
+        "rev": "5061948210b25f9cb8fc0dc8b925d2e41171db1c",
         "type": "github"
       },
       "original": {

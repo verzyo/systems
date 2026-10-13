@@ -8,34 +8,41 @@
   config = lib.mkIf config.modules.desktop.quickshell.enable {
     xdg.configFile."quickshell".source = inputs.shell;
 
+    programs.meowtugen.templates.shell = lib.mkIf config.modules.desktop.meowtugen.enable {
+      input_path = "${inputs.shell}/theme.json";
+      output_path = "${config.xdg.cacheHome}/quickshell/theme.json";
+    };
+
     home.packages = with pkgs; [
       (pkgs.python3.withPackages (ps: [ps.kdl-py]))
       sunsetr
     ];
 
-    programs.quickshell = {
-      enable = true;
-      systemd.enable = true;
+    programs = {
+      quickshell = {
+        enable = true;
+        systemd.enable = true;
 
-      package = pkgs.stdenv.mkDerivation {
-        pname = "quickshell";
-        version = pkgs.quickshell.version;
+        package = pkgs.stdenv.mkDerivation {
+          pname = "quickshell";
+          version = pkgs.quickshell.version;
 
-        dontUnpack = true;
-        dontBuild = true;
+          dontUnpack = true;
+          dontBuild = true;
 
-        nativeBuildInputs = [pkgs.qt6.wrapQtAppsHook];
-        buildInputs = with pkgs.kdePackages; [
-          qtbase
-          qtmultimedia
-        ];
+          nativeBuildInputs = [pkgs.qt6.wrapQtAppsHook];
+          buildInputs = with pkgs.kdePackages; [
+            qtbase
+            qtmultimedia
+          ];
 
-        installPhase = ''
-          mkdir -p $out/bin $out/share
+          installPhase = ''
+            mkdir -p $out/bin $out/share
 
-          ln -s ${pkgs.lib.getExe pkgs.quickshell} $out/bin/quickshell
-          cp -r ${pkgs.quickshell}/share/* $out/share/ || true
-        '';
+            ln -s ${pkgs.lib.getExe pkgs.quickshell} $out/bin/quickshell
+            cp -r ${pkgs.quickshell}/share/* $out/share/ || true
+          '';
+        };
       };
     };
   };
