@@ -5,14 +5,19 @@
   ...
 }: {
   config = lib.mkIf config.modules.desktop.niri.enable {
-    programs.niri.settings = {
+    programs.niri.settings = let
+      strut = -1;
+    in {
       cursor = {
         hide-when-typing = true;
         hide-after-inactive-ms = 5000;
       };
 
       input = {
-        focus-follows-mouse.enable = true;
+        focus-follows-mouse = {
+          enable = true;
+          max-scroll-amount = "0%";
+        };
 
         power-key-handling.enable = true; # power button = sleep
 
@@ -53,6 +58,8 @@
         always-center-single-column = false;
         center-focused-column = "never";
 
+        gaps = 16.0 - strut;
+
         background-color = "transparent";
         shadow.enable = false;
 
@@ -65,6 +72,13 @@
         };
 
         focus-ring.enable = false;
+
+        struts = {
+          left = strut;
+          right = strut;
+          bottom = strut;
+          top = strut;
+        };
       };
 
       overview = {
