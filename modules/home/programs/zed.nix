@@ -25,7 +25,7 @@
         };
 
         telemetry = {
-          diganostics = false;
+          diagnostics = false;
           metrics = false;
         };
       };
