@@ -9,7 +9,10 @@
       enable = true;
       package = pkgs.evil-helix;
 
-      settings.theme = "base16_default";
+      settings = {
+        editor.line-number = "relative";
+        theme = "base16_default";
+      };
     };
   };
 

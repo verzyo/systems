@@ -14,6 +14,7 @@
         auto_update = false;
 
         vim_mode = true;
+        relative_line_numbers = true;
 
         load_direnv = lib.mkIf config.modules.programs.direnv.enable "shell_hook";
 
