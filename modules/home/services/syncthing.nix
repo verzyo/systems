@@ -17,10 +17,10 @@
         };
 
         folders.notes = {
-          id = "notes";
-          label = "notes";
+          id = "vault";
+          label = "vault";
 
-          path = "~/notes";
+          path = "~/vault";
           devices = ["phone"];
 
           versioning = {
