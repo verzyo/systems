@@ -1,7 +1,14 @@
-_: {
+{pkgs, ...}: {
   imports = [./disks.nix];
 
   networking.hostName = "laptop";
+
+   services.upower.enable = true;
+
+  fonts.packages = with pkgs; [
+    material-symbols
+    roboto-flex
+  ];
 
   modules = {
     desktop = {

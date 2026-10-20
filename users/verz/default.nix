@@ -1,4 +1,4 @@
-_: {
+{pkgs, ...}: {
   modules = {
     programs = {
       claude-code.enable = true;
@@ -41,4 +41,11 @@ _: {
     homeDirectory = "/home/verz";
     stateVersion = "26.11";
   };
+
+   fonts.fontconfig.enable = true;
+
+  home.packages = with pkgs; [
+    material-symbols
+    roboto-flex
+  ];
 }
