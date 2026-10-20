@@ -42,7 +42,7 @@
     stateVersion = "26.11";
   };
 
-   fonts.fontconfig.enable = true;
+  fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
     material-symbols

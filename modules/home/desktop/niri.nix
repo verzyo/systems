@@ -58,7 +58,7 @@
         always-center-single-column = false;
         center-focused-column = "never";
 
-        gaps = 16.0 - strut;
+        gaps = 12.0 - strut;
 
         background-color = "transparent";
         shadow.enable = false;

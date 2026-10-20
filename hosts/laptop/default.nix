@@ -3,7 +3,10 @@
 
   networking.hostName = "laptop";
 
-   services.upower.enable = true;
+  services.upower.enable = true;
+  hardware.graphics.extraPackages = with pkgs; [
+    intel-media-driver
+  ];
 
   fonts.packages = with pkgs; [
     material-symbols
