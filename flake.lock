@@ -369,16 +369,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1791906237,
-        "narHash": "sha256-o/bxpljBm6XZzVt64vu5kv8ev1uC5FuJ892zHbu44Cw=",
+        "lastModified": 1793047266,
+        "narHash": "sha256-CMF+PAl1dxq1JpyxF9SK+qHPIy5wdl/HW1zYwKVT1x0=",
         "owner": "verzyo",
-        "repo": "meowtugen",
-        "rev": "133144b738040312500bbcbe748ae783d155e93e",
+        "repo": "m3owtugen",
+        "rev": "423cca8b5a204a906e43ba0c6f94c09fbb8cf46e",
         "type": "github"
       },
       "original": {
         "owner": "verzyo",
-        "repo": "meowtugen",
+        "repo": "m3owtugen",
         "type": "github"
       }
     },
