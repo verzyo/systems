@@ -10,6 +10,7 @@
 
       helix.enable = true;
       yazi.enable = true;
+      dolphin.enable = true;
       btop.enable = true;
       vim.enable = true;
 
