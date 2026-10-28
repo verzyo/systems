@@ -20,7 +20,7 @@
 
         theme = lib.mkIf config.modules.desktop.m3owtugen.enable {
           mode = "dark";
-          dark = "Meowtugen";
+          dark = "M3owtugen";
         };
 
         telemetry = {

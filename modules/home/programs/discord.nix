@@ -9,7 +9,7 @@
       enable = true;
 
       equicord.settings = lib.mkIf config.modules.desktop.m3owtugen.enable {
-        enabledThemes = ["meowtugen.css"];
+        enabledThemes = ["m3owtugen.css"];
       };
     };
 
