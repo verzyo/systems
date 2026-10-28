@@ -18,7 +18,7 @@
         (_oldAttrs: {
           src = inputs.cliproxyapi-plus;
 
-          vendorHash = "sha256-qEzUD+WIRzzKhoQfHSKxDcqmilXqwZo0os9ZGJeWmHU=";
+          vendorHash = "sha256-9Cu7g30ge1qTRf5NJHJ6+US6LO5ZXF4qswh3DD06mBY=";
         });
 
       managementPasswordFile = lib.mkIf osConfig.modules.sops.enable osConfig.sops.secrets."management_pass".path;
