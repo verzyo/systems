@@ -8,7 +8,6 @@
       packages = with pkgs; [
         ssh-to-age
         sops
-        mcp-nixos
       ];
 
       # derive age identity from ssh key at runtime, if it exists
