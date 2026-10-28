@@ -8,7 +8,7 @@
   config = lib.mkIf config.modules.desktop.quickshell.enable {
     xdg.configFile."quickshell".source = inputs.shell;
 
-    programs.meowtugen.templates.shell = lib.mkIf config.modules.desktop.meowtugen.enable {
+    programs.m3owtugen.templates.shell = lib.mkIf config.modules.desktop.m3owtugen.enable {
       input_path = "${inputs.shell}/theme.json";
       output_path = "${config.xdg.cacheHome}/quickshell/theme.json";
     };

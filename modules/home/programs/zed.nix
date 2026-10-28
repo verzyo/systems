@@ -18,7 +18,7 @@
 
         load_direnv = lib.mkIf config.modules.programs.direnv.enable "shell_hook";
 
-        theme = lib.mkIf config.modules.desktop.meowtugen.enable {
+        theme = lib.mkIf config.modules.desktop.m3owtugen.enable {
           mode = "dark";
           dark = "Meowtugen";
         };

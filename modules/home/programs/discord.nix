@@ -8,7 +8,7 @@
     programs.equibop = {
       enable = true;
 
-      equicord.settings = lib.mkIf config.modules.desktop.meowtugen.enable {
+      equicord.settings = lib.mkIf config.modules.desktop.m3owtugen.enable {
         enabledThemes = ["meowtugen.css"];
       };
     };

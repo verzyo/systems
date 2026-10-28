@@ -5,7 +5,7 @@
   };
 
   inputs = {
-    meowtugen = {
+    m3owtugen = {
       url = "github:verzyo/m3owtugen";
       inputs = {
         # dms.follows = "dms";

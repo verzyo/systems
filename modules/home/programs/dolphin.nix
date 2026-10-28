@@ -14,7 +14,7 @@
     ];
 
     # kde platform theme so dolphin reads the matugen-generated kdeglobals
-    programs.meowtugen.dolphin.setQtPlatformTheme = true;
+    programs.m3owtugen.dolphin.setQtPlatformTheme = true;
 
     qt = {
       enable = true;

@@ -29,8 +29,8 @@
       };
     })
 
-    (lib.mkIf (config.modules.programs.zen.enable && config.modules.desktop.meowtugen.enable) {
-      programs.meowtugen.zen.withSine = true;
+    (lib.mkIf (config.modules.programs.zen.enable && config.modules.desktop.m3owtugen.enable) {
+      programs.m3owtugen.zen.withSine = true;
     })
   ];
 

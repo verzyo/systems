@@ -336,6 +336,31 @@
         "type": "github"
       }
     },
+    "m3owtugen": {
+      "inputs": {
+        "dms": "dms",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "themes": "themes",
+        "treefmt": [
+          "treefmt"
+        ]
+      },
+      "locked": {
+        "lastModified": 1793147715,
+        "narHash": "sha256-Xw0DJuAIXwMN9H0PEt9UI0MSM+bh33pDvetTz58y2XA=",
+        "owner": "verzyo",
+        "repo": "m3owtugen",
+        "rev": "177a2cdc77f8a4ae61bf755698ebdbd7494beff7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "verzyo",
+        "repo": "m3owtugen",
+        "type": "github"
+      }
+    },
     "matugen": {
       "inputs": {
         "nixpkgs": [
@@ -354,31 +379,6 @@
       "original": {
         "owner": "InioX",
         "repo": "matugen",
-        "type": "github"
-      }
-    },
-    "meowtugen": {
-      "inputs": {
-        "dms": "dms",
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "themes": "themes",
-        "treefmt": [
-          "treefmt"
-        ]
-      },
-      "locked": {
-        "lastModified": 1793048793,
-        "narHash": "sha256-ysufenT4HqDW1Cyov2WzJ2pAbz2nzE2qc5mN4x16PhE=",
-        "owner": "verzyo",
-        "repo": "m3owtugen",
-        "rev": "b0eea7c90f2a2d2b078de7c06ba42a20ffffcef3",
-        "type": "github"
-      },
-      "original": {
-        "owner": "verzyo",
-        "repo": "m3owtugen",
         "type": "github"
       }
     },
@@ -564,8 +564,8 @@
         "import-tree": "import-tree",
         "lanzaboote": "lanzaboote",
         "llm-agents": "llm-agents",
+        "m3owtugen": "m3owtugen",
         "matugen": "matugen",
-        "meowtugen": "meowtugen",
         "niri": "niri",
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-stable": "nixpkgs-stable",

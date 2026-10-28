@@ -32,7 +32,7 @@
     desktop = {
       quickshell.enable = true;
       niri.enable = true;
-      meowtugen.enable = true;
+      m3owtugen.enable = true;
       cursor.enable = true;
     };
   };

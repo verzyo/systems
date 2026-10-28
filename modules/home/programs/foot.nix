@@ -7,7 +7,7 @@
     programs.foot = {
       enable = true;
 
-      settings.main.include = lib.mkIf config.modules.desktop.meowtugen.enable [
+      settings.main.include = lib.mkIf config.modules.desktop.m3owtugen.enable [
         "${config.xdg.configHome}/foot/colors.ini"
       ];
     };

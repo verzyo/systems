@@ -6,7 +6,7 @@
   config = lib.mkIf config.modules.programs.btop.enable {
     programs.btop = {
       enable = true;
-      settings = lib.mkIf config.modules.desktop.meowtugen.enable {
+      settings = lib.mkIf config.modules.desktop.m3owtugen.enable {
         color_theme = "meowtugen";
       };
     };

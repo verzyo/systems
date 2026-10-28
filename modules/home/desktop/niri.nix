@@ -219,7 +219,7 @@
       hotkey-overlay.skip-at-startup = true;
     };
 
-    xdg.configFile.niri-config.source = lib.mkIf config.modules.desktop.meowtugen.enable (
+    xdg.configFile.niri-config.source = lib.mkIf config.modules.desktop.m3owtugen.enable (
       lib.mkForce (pkgs.writeText "config.kdl" ''
         ${config.programs.niri.finalConfig}
         include optional=true "colors.kdl"
