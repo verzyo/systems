@@ -23,10 +23,7 @@ in {
   };
 
   # required for TPM unlocking
-  boot.initrd = {
-    systemd.enable = true;
-    luks.devices.${luksDeviceName}.crypttabExtraOpts = ["tpm2-device=auto"];
-  };
+  boot.initrd.luks.devices.${luksDeviceName}.crypttabExtraOpts = ["tpm2-device=auto"];
 
   disko.devices.disk.main = {
     inherit device;

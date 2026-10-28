@@ -38,8 +38,6 @@ in {
     };
 
     boot.initrd.systemd = {
-      enable = true;
-
       services.ephemerality = {
         description = "Ephemerality service";
 
