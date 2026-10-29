@@ -17,6 +17,13 @@
         options = "--delete-older-than 7d";
       };
 
+      optimise = {
+        automatic = true;
+        persistent = true;
+
+        dates = ["weekly"];
+      };
+
       registry = {
         nixpkgs.flake = inputs.nixpkgs;
         nixpkgs-stable.flake = inputs.nixpkgs-stable;
@@ -25,7 +32,6 @@
       settings = {
         experimental-features = ["flakes" "nix-command"];
 
-        auto-optimise-store = true;
         use-xdg-base-directories = true;
 
         flake-registry = "";
