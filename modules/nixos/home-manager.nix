@@ -12,6 +12,8 @@
 
       useGlobalPkgs = true;
       useUserPackages = true;
+
+      startAsUserService = true;
     };
   };
 
