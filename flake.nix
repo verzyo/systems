@@ -1,121 +1,5 @@
 {
-  nixConfig = {
-    extra-substituters = [
-      "https://niri.cachix.org/"
-      "https://install.determinate.systems"
-    ];
-    extra-trusted-public-keys = [
-      "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
-      "cache.flakehub.com-3:hJuILl5sVK4iKm86JzgdXW12Y2Hwd5G07qKtHTOcDCM="
-    ];
-  };
-
   inputs = {
-    m3owtugen = {
-      url = "github:verzyo/m3owtugen";
-      inputs = {
-        # dms.follows = "dms";
-        treefmt.follows = "treefmt";
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
-
-    llm-agents = {
-      url = "github:numtide/llm-agents.nix";
-      inputs = {
-        # bun2nix.follows = "bun2nix";
-        # systems.follows = "systems";
-        treefmt-nix.follows = "treefmt";
-        flake-parts.follows = "flake-parts";
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
-
-    cliproxyapi-plus = {
-      url = "github:jc01rho/CLIProxyAPIPlus";
-      flake = false;
-    };
-
-    cliproxyapi = {
-      url = "github:verzyo/CLIProxyAPI-nix";
-      # inputs.flake-utils.follows = "flake-utils";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    zen = {
-      url = "github:0xc000022070/zen-browser-flake";
-      inputs = {
-        home-manager.follows = "home-manager";
-        # nixpkgs.follows = "nixpkgs"; # zen's package.nix needs ffmpeg_9
-      };
-    };
-
-    shell = {
-      url = "github:verzyo/shell";
-      flake = false;
-    };
-
-    matugen = {
-      url = "github:InioX/matugen";
-      # inputs.nixpkgs.systems.follows = "systems";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    niri = {
-      url = "github:epireyn/niri-flake";
-      inputs = {
-        nixpkgs-stable.follows = "nixpkgs-stable";
-        # nixpkgs.follows = "nixpkgs"; # niri references removed libdisplay-info_0_2
-      };
-    };
-
-    git-hooks = {
-      url = "github:cachix/git-hooks.nix";
-      # inputs.flake-compat.follows = "flake-compat";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    treefmt = {
-      url = "github:numtide/treefmt-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    lanzaboote = {
-      url = "github:nix-community/lanzaboote";
-      inputs = {
-        # inputs.crane.follows = "crane";
-        # inputs.rust-overlay.follows = "rust-overlay";
-        # inputs.pre-commit.follows = "pre-commit";
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
-
-    sops = {
-      url = "github:mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    preservation.url = "github:nix-community/preservation";
-
-    disko = {
-      url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    determinate = {
-      url = "https://flakehub.com/f/DeterminateSystems/determinate/3";
-      inputs = {
-        # determinate-nixd-x86_64-linux.follows = "determinate-nixd-x86_64-linux";
-        # nix.follows = "nix";
-        # nixpkgs.follows = "nixpkgs"; # following causes cache misses on install.determinate.systems
-      };
-    };
-
     import-tree.url = "github:denful/import-tree";
 
     flake-parts = {
@@ -123,24 +7,18 @@
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
 
-    chaotic = {
-      url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-      #inputs.flake-schemas.follows = "flake-schemas";
-      #inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-    };
-
-    nixpkgs-stable.url = "https://flakehub.com/f/NixOS/nixpkgs/*";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   };
 
-  outputs = {
-    import-tree,
-    flake-parts,
-    ...
-  } @ inputs:
-    flake-parts.lib.mkFlake {inherit inputs;} {
-      systems = ["x86_64-linux"];
-      imports = [(import-tree ./parts)];
+  outputs = inputs:
+    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
+      imports = [
+        (inputs.import-tree (builtins.filter builtins.pathExists [
+          ./parts
+          ./hosts
+          ./users
+          ./modules
+        ]))
+      ];
     };
 }
