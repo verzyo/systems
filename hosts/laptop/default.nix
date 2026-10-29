@@ -55,6 +55,7 @@
     };
 
     memory.enable = true;
+    ioscheduler.enable = true;
     perlless.enable = true;
 
     time.enable = true;
