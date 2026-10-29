@@ -55,6 +55,7 @@
     };
 
     memory.enable = true;
+    perlless.enable = true;
 
     time.enable = true;
     home-manager.enable = true;
