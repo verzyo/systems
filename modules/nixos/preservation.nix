@@ -14,7 +14,10 @@ in {
 
       preserveAt."/${cfg.preservedSubvolume}" = {
         directories = [
-          "/var/lib/nixos"
+          {
+            directory = "/var/lib/nixos";
+            inInitrd = true;
+          }
           "/var/log"
           "/var/lib/systemd/timers"
           "/var/lib/systemd/coredump"
