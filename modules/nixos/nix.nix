@@ -33,6 +33,7 @@
         experimental-features = ["flakes" "nix-command"];
 
         use-xdg-base-directories = true;
+        download-buffer-size = 268435456; # 256 MiB
 
         flake-registry = "";
 
