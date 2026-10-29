@@ -1,7 +1,13 @@
 {
   nixConfig = {
-    extra-substituters = ["https://niri.cachix.org/"];
-    extra-trusted-public-keys = ["niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="];
+    extra-substituters = [
+      "https://niri.cachix.org/"
+      "https://install.determinate.systems"
+    ];
+    extra-trusted-public-keys = [
+      "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
+      "cache.flakehub.com-3:hJuILl5sVK4iKm86JzgdXW12Y2Hwd5G07qKtHTOcDCM="
+    ];
   };
 
   inputs = {
@@ -99,6 +105,15 @@
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    determinate = {
+      url = "https://flakehub.com/f/DeterminateSystems/determinate/3";
+      inputs = {
+        # determinate-nixd-x86_64-linux.follows = "determinate-nixd-x86_64-linux";
+        # nix.follows = "nix";
+        # nixpkgs.follows = "nixpkgs"; # following causes cache misses on install.determinate.systems
+      };
     };
 
     import-tree.url = "github:denful/import-tree";

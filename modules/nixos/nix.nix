@@ -2,14 +2,13 @@
   inputs,
   lib,
   config,
-  pkgs,
   self,
   ...
 }: {
+  imports = [inputs.determinate.nixosModules.default];
+
   config = lib.mkIf config.modules.nix.enable {
     nix = {
-      package = pkgs.lix;
-
       gc = {
         automatic = true;
         persistent = true;
@@ -30,6 +29,9 @@
         use-xdg-base-directories = true;
 
         flake-registry = "";
+
+        substituters = ["https://install.determinate.systems"];
+        trusted-public-keys = ["cache.flakehub.com-3:hJuILl5sVK4iKm86JzgdXW12Y2Hwd5G07qKtHTOcDCM="];
       };
 
       channel.enable = false;
