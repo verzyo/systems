@@ -11,6 +11,7 @@
       apply = lib.mapAttrs (name: module: {
         _class = "nixos";
         _file = "nixos.modules.${name}";
+        key = "nixos.modules.${name}";
         imports = [module];
       });
       description = "NixOS modules, one per feature, imported by hosts.";
