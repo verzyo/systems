@@ -8,6 +8,7 @@
 }: {
   config = lib.mkIf config.modules.users.verz.enable {
     programs.fish.enable = true;
+    documentation.man.generateCaches = false;
 
     nix.settings.trusted-users = ["verz"];
 

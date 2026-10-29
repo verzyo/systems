@@ -20,6 +20,8 @@
           ${lib.getExe config.programs.jujutsu.package} util completion fish | source
         '';
     };
+
+    programs.man.generateCaches = false;
   };
 
   options.modules.shell.fish.enable = lib.mkEnableOption "fish module";
