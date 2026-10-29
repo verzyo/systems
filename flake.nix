@@ -10,6 +10,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    determinate = {
+      url = "github:DeterminateSystems/determinate";
+      inputs = {
+        nix.inputs.flake-parts.follows = "flake-parts";
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
+
     import-tree.url = "github:denful/import-tree";
 
     flake-parts = {
