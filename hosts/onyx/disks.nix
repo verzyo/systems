@@ -37,7 +37,7 @@
 
             content = {
               type = "luks";
-              name = "crypted";
+              name = luksDeviceName;
 
               settings.allowDiscards = true;
 
