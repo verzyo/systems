@@ -3,7 +3,7 @@
   lib,
   ...
 }: {
-  nixos.modules.nix = {
+  nixos.modules.base = {
     imports = [inputs.determinate.nixosModules.default];
 
     nix = {
@@ -35,13 +35,14 @@
       };
 
       channel.enable = false;
-      nixPath = ["nixpkgs=${inputs.nixpkgs}"];
     };
 
     systemd.services.nix-daemon.serviceConfig = {
       CPUWeight = lib.mkDefault 20;
       IOWeight = lib.mkDefault 20;
     };
+
+    nixpkgs.config.allowUnfree = true;
 
     programs = {
       git.enable = true;
