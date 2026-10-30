@@ -34,6 +34,7 @@
       name: host:
         inputs.nixpkgs.lib.nixosSystem {
           modules = [
+            config.nixos.modules.base
             {networking.hostName = lib.mkDefault name;}
             host.module
           ];
