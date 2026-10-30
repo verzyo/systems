@@ -12,6 +12,17 @@
 
     environment.systemPackages = [pkgs.sbctl];
 
+    # regenerated keys wouldn't match the enrolled ones, and a lost marker re-enrolls the TPM every boot
+    preservation.preserveAt.state.directories = lib.unique [
+      {
+        directory = config.boot.lanzaboote.pkiBundle;
+        mode = "0700";
+      }
+      config.boot.lanzaboote.measuredBoot.pcrlockDirectory
+      (dirOf config.boot.lanzaboote.measuredBoot.pcrlockPolicy)
+      "/var/lib/auto-cryptenroll"
+    ];
+
     boot = {
       loader = {
         timeout = 0;
