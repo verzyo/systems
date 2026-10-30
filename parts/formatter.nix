@@ -4,6 +4,12 @@
   perSystem.treefmt = {
     projectRootFile = "flake.nix";
 
-    programs.alejandra.enable = true; # .nix
+    programs = {
+      alejandra.enable = true; # .nix
+      prettier = {
+        enable = true;
+        includes = ["*.json"];
+      };
+    };
   };
 }
