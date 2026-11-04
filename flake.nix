@@ -11,7 +11,10 @@
 
     lanzaboote = {
       url = "github:nix-community/lanzaboote";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        pre-commit.follows = "";
+      };
     };
 
     disko = {
@@ -22,7 +25,14 @@
     determinate = {
       url = "github:DeterminateSystems/determinate";
       inputs = {
-        nix.inputs.flake-parts.follows = "flake-parts";
+        nix.inputs = {
+          flake-parts.follows = "flake-parts";
+          git-hooks-nix.follows = "";
+          nixpkgs-23-11.follows = "";
+          nixpkgs-regression.follows = "";
+        };
+
+        determinate-nixd-aarch64-darwin.follows = "";
         nixpkgs.follows = "nixpkgs";
       };
     };
