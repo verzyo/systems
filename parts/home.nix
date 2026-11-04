@@ -4,39 +4,13 @@
   lib,
   ...
 }: {
-  imports = [inputs.home-manager.flakeModules.home-manager];
-
-  options.home = {
-    modules = lib.mkOption {
-      type = lib.types.lazyAttrsOf lib.types.deferredModule;
-      default = {};
-      apply = lib.mapAttrs (name: module: {
-        _class = "homeManager";
-        _file = "home.modules.${name}";
-        key = "home.modules.${name}";
-        imports = [module];
-      });
-      description = "Home Manager modules, one per feature, imported by users and hosts.";
-    };
-
-    configurations = lib.mkOption {
-      type = lib.types.lazyAttrsOf (lib.types.submodule {
-        options = {
-          system = lib.mkOption {
-            type = lib.types.str;
-            description = "Platform of the machine the home runs on.";
-          };
-
-          module = lib.mkOption {
-            type = lib.types.deferredModule;
-            description = "The home's Home Manager module.";
-          };
-        };
-      });
-      default = {};
-      description = "Standalone homes (user@host), instantiated into homeConfigurations.";
-    };
-  };
+  imports = [
+    inputs.home-manager.flakeModules.default
+    (inputs.import-tree [
+      ../users
+      ../modules
+    ])
+  ];
 
   config.flake.homeConfigurations =
     lib.mapAttrs (
@@ -47,4 +21,39 @@
         }
     )
     config.home.configurations;
+
+  options.home = {
+    modules = lib.mkOption {
+      description = "Home Manager modules, one per feature, imported by users and hosts.";
+
+      default = {};
+      type = lib.types.lazyAttrsOf lib.types.deferredModule;
+
+      apply = lib.mapAttrs (name: module: {
+        _class = "homeManager";
+        _file = "home.modules.${name}";
+        key = "home.modules.${name}";
+        imports = [module];
+      });
+    };
+
+    configurations = lib.mkOption {
+      description = "Standalone homes (user@host), instantiated into homeConfigurations.";
+
+      default = {};
+      type = lib.types.lazyAttrsOf (lib.types.submodule {
+        options = {
+          system = lib.mkOption {
+            description = "Platform of the machine the home runs on.";
+            type = lib.types.str;
+          };
+
+          module = lib.mkOption {
+            description = "The home's Home Manager module.";
+            type = lib.types.deferredModule;
+          };
+        };
+      });
+    };
+  };
 }
