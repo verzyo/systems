@@ -1,21 +1,18 @@
 {
   inputs = {
-    treefmt = {
-      url = "github:numtide/treefmt-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
+    # USER #
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # SYSTEM #
+    preservation.url = "github:nix-community/preservation";
+
     lanzaboote = {
       url = "github:nix-community/lanzaboote";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    preservation.url = "github:nix-community/preservation";
 
     disko = {
       url = "github:nix-community/disko";
@@ -30,6 +27,12 @@
       };
     };
 
+    # FRAMEWORK #
+    treefmt = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     import-tree.url = "github:denful/import-tree";
 
     flake-parts = {
@@ -37,6 +40,7 @@
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
 
+    # CORE #
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   };
 
