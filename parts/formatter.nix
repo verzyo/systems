@@ -1,15 +1,16 @@
 {inputs, ...}: {
   imports = [inputs.treefmt.flakeModule];
 
-  perSystem.treefmt = {
-    projectRootFile = "flake.nix";
+  perSystem.treefmt.programs = {
+    # nix
+    alejandra.enable = true;
+    statix.enable = true;
+    deadnix.enable = true;
 
-    programs = {
-      alejandra.enable = true; # .nix
-      prettier = {
-        enable = true;
-        includes = ["*.json"];
-      };
+    # json
+    biome = {
+      enable = true;
+      includes = ["*.json"];
     };
   };
 }
