@@ -11,7 +11,6 @@
       useGlobalPkgs = true;
       useUserPackages = true;
 
-      startAsUserService = true;
       backupCommand = lib.getExe pkgs.trash-cli;
 
       sharedModules = [
