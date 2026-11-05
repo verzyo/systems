@@ -1,6 +1,8 @@
 {config, ...}: {
   nixos.configurations.onyx.module = {
     imports = with config.nixos.modules; [
+      verz
+
       lanzaboote
     ];
 

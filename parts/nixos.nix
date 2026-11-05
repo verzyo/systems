@@ -7,6 +7,7 @@
   imports = [
     (inputs.import-tree [
       ../hosts
+      ../users
       ../modules
     ])
   ];
