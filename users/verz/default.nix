@@ -16,6 +16,7 @@
   };
 
   home.modules.verz.imports = with config.home.modules; [
+    starship
     fish
   ];
 }
