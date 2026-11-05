@@ -14,10 +14,28 @@
 
   config.flake.homeConfigurations =
     lib.mapAttrs (
-      _: home:
+      name: home: let
+        user = lib.head (lib.splitString "@" name);
+      in
         inputs.home-manager.lib.homeManagerConfiguration {
-          pkgs = inputs.nixpkgs.legacyPackages.${home.system};
-          modules = [home.module];
+          modules = [
+            {
+              home = {
+                username = lib.mkDefault user;
+                homeDirectory = lib.mkDefault "/home/${user}";
+              };
+
+              targets.genericLinux.enable = lib.mkDefault true;
+              programs.home-manager.enable = true;
+            }
+            config.home.modules.base
+            home.module
+          ];
+
+          pkgs = import inputs.nixpkgs {
+            inherit (home) system;
+            config.allowUnfree = true;
+          };
         }
     )
     config.home.configurations;
