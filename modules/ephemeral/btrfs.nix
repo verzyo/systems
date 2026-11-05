@@ -1,12 +1,12 @@
 {
-  nixos.modules.preservation = {
-    config,
+  nixos.modules.ephemeral = {
     lib,
+    config,
     ...
   }: let
     subvolume = path: let
-      fs = config.fileSystems.${path} or (throw "preservation-btrfs: ${config.networking.hostName} has no ${path} filesystem");
-      option = lib.findFirst (lib.hasPrefix "subvol=") (throw "preservation-btrfs: ${path} is not mounted from a btrfs subvolume") fs.options;
+      fs = config.fileSystems.${path} or (throw "ephemeral: ${config.networking.hostName} has no ${path} filesystem");
+      option = lib.findFirst (lib.hasPrefix "subvol=") (throw "ephemeral: ${path} is not mounted from a btrfs subvolume") fs.options;
     in
       lib.removePrefix "/" (lib.removePrefix "subvol=" option);
 
@@ -14,9 +14,10 @@
     root = subvolume "/";
     previous = subvolume "/snap";
   in
-    lib.mkIf (config.ephemeral.root == "btrfs") {
+    # gated so another root fails on the assertion in default.nix, not on the subvolume lookups
+    lib.mkIf (config.fileSystems."/".fsType == "btrfs") {
       boot.initrd.systemd.services.ephemerality = {
-        description = "Move the previous root aside and create a fresh one";
+        description = "Move the previous root aside and create a fresh one.";
 
         wantedBy = ["initrd-root-fs.target"];
         before = ["sysroot.mount"];

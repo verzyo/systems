@@ -5,23 +5,13 @@
     config,
     ...
   }: let
-    luks = lib.attrValues config.boot.initrd.luks.devices;
+    # volumes the host unlocks with the TPM, via crypttabExtraOpts = ["tpm2-device=..."]
+    tpm = lib.filter (luks: lib.any (lib.hasPrefix "tpm2-device=") luks.crypttabExtraOpts) (lib.attrValues config.boot.initrd.luks.devices);
     cryptenroll = config.boot.lanzaboote.measuredBoot.autoCryptenroll;
   in {
     imports = [inputs.lanzaboote.nixosModules.default];
 
     environment.systemPackages = [pkgs.sbctl];
-
-    # regenerated keys wouldn't match the enrolled ones, and a lost marker re-enrolls the TPM every boot
-    preservation.preserveAt.state.directories = lib.unique [
-      {
-        directory = config.boot.lanzaboote.pkiBundle;
-        mode = "0700";
-      }
-      config.boot.lanzaboote.measuredBoot.pcrlockDirectory
-      (dirOf config.boot.lanzaboote.measuredBoot.pcrlockPolicy)
-      "/var/lib/auto-cryptenroll"
-    ];
 
     boot = {
       loader = {
@@ -44,14 +34,14 @@
         configurationLimit = 4;
 
         measuredBoot = {
-          enable = true;
+          enable = tpm != [];
 
           pcrs = [0 4 7];
           pcrlockPolicy = "/var/lib/pcrlock.d/pcrlock.json";
 
           autoCryptenroll = {
-            enable = luks != [];
-            device = lib.mkIf (lib.length luks == 1) (lib.mkDefault (lib.head luks).device);
+            enable = tpm != [];
+            device = lib.mkIf (lib.length tpm == 1) (lib.mkDefault (lib.head tpm).device);
           };
         };
       };
@@ -61,12 +51,29 @@
       {
         assertion = cryptenroll.enable -> cryptenroll.device != null;
         message = ''
-          ${config.networking.hostName}: lanzaboote can't pick a LUKS device for autoCryptenroll, found ${toString (lib.length luks)}:
-          ${lib.concatMapStringsSep "\n" (d: "    ${d.name}: ${d.device}") luks}
-            Set the one holding your root filesystem, e.g.
-              boot.lanzaboote.measuredBoot.autoCryptenroll.device = "${(lib.head luks).device}";
+          ${config.networking.hostName}: lanzaboote can't pick a LUKS device for autoCryptenroll, found ${toString (lib.length tpm)} with tpm2-device in crypttabExtraOpts:
+          ${lib.concatMapStringsSep "\n" (luks: "    ${luks.name}: ${luks.device}") tpm}
+            Set the one to enroll, e.g.
+              boot.lanzaboote.measuredBoot.autoCryptenroll.device = "/dev/disk/by-partlabel/...";
         '';
       }
     ];
   };
+
+  nixos.modules.ephemeral = {
+    config,
+    lib,
+    ...
+  }:
+    lib.mkIf (config.boot.lanzaboote.enable or false) {
+      preservation.preserveAt.state.directories = lib.unique [
+        {
+          directory = config.boot.lanzaboote.pkiBundle;
+          mode = "0700";
+        }
+        config.boot.lanzaboote.measuredBoot.pcrlockDirectory
+        (dirOf config.boot.lanzaboote.measuredBoot.pcrlockPolicy)
+        "/var/lib/auto-cryptenroll"
+      ];
+    };
 }
