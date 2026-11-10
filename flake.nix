@@ -40,6 +40,7 @@
       };
     };
     nixpkgs = {url = "github:NixOS/nixpkgs/nixos-unstable";};
+    preservation = {url = "github:nix-community/preservation";};
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
