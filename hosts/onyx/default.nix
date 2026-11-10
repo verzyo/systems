@@ -1,6 +1,6 @@
 {den, ...}: {
   den = {
-    hosts.x86_64-linux.onyx = {};
+    hosts.x86_64-linux.onyx.users.verz = {};
 
     aspects.onyx = {
       includes = with den.aspects; [
