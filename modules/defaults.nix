@@ -6,7 +6,10 @@
   den.schema.host.includes = [den.aspects.defaults];
 
   den.aspects.defaults = {
-    includes = [den.batteries.hostname];
+    includes = with den; [
+      batteries.hostname
+      aspects.nix
+    ];
 
     os = {
       time.timeZone = "Europe/Prague";
