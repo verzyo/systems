@@ -3,8 +3,25 @@
 {
   outputs = inputs: import ./outputs.nix inputs;
 
+  nixConfig = {
+    extra-substituters = ["https://install.determinate.systems"];
+    extra-trusted-public-keys = ["cache.flakehub.com-3:hJuILl5sVK4iKm86JzgdXW12Y2Hwd5G07qKtHTOcDCM="];
+  };
+
   inputs = {
     den = {url = "github:denful/den";};
+    determinate = {
+      url = "https://flakehub.com/f/DeterminateSystems/determinate/3";
+      inputs = {
+        nix.inputs = {
+          flake-parts.follows = "flake-parts";
+          git-hooks-nix.follows = "";
+          nixpkgs-23-11.follows = "";
+          nixpkgs-regression.follows = "";
+        };
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
