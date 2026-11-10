@@ -4,21 +4,17 @@
   outputs = inputs: import ./outputs.nix inputs;
 
   inputs = {
-    den = {
-      url = "github:denful/den";
-    };
-    flake-file = {
-      url = "github:denful/flake-file";
-    };
+    den = {url = "github:denful/den";};
+    flake-file = {url = "github:denful/flake-file";};
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
-    import-tree = {
-      url = "github:denful/import-tree";
-    };
-    nixpkgs = {
-      url = "github:NixOS/nixpkgs/nixos-unstable";
+    import-tree = {url = "github:denful/import-tree";};
+    nixpkgs = {url = "github:NixOS/nixpkgs/nixos-unstable";};
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 }
