@@ -4,6 +4,7 @@
 
     aspects.onyx = {
       includes = with den.aspects; [
+        kanata
         networkmanager
 
         ephemeral.btrfs
