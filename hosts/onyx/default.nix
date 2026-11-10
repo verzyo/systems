@@ -3,7 +3,10 @@
     hosts.x86_64-linux.onyx = {};
 
     aspects.onyx = {
-      includes = [den.aspects.lanzaboote];
+      includes = with den.aspects; [
+        lanzaboote
+        plymouth
+      ];
 
       nixos = {
         hardware.facter.reportPath = ./hardware.json;
