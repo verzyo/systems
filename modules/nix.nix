@@ -18,44 +18,51 @@
     };
   };
 
-  den.aspects.nix.nixos = {
-    imports = [inputs.determinate.nixosModules.default];
+  den.aspects.nix = {
+    nixos = {
+      imports = [inputs.determinate.nixosModules.default];
 
-    nix = {
-      registry.nixpkgs.flake = inputs.nixpkgs;
+      nix = {
+        registry.nixpkgs.flake = inputs.nixpkgs;
 
-      gc = {
-        automatic = true;
-        persistent = true;
+        gc = {
+          automatic = true;
+          persistent = true;
 
-        dates = "weekly";
-        options = "--delete-older-than 7d";
+          dates = "weekly";
+          options = "--delete-older-than 7d";
+        };
+
+        optimise = {
+          automatic = true;
+          persistent = true;
+
+          dates = ["weekly"];
+        };
+
+        settings = {
+          use-xdg-base-directories = true;
+          flake-registry = "";
+          download-buffer-size = 268435456; # 256 MiB
+        };
+
+        channel.enable = false;
       };
 
-      optimise = {
-        automatic = true;
-        persistent = true;
-
-        dates = ["weekly"];
+      systemd.services.nix-daemon.serviceConfig = {
+        CPUWeight = 20;
+        IOWeight = 20;
       };
 
-      settings = {
-        use-xdg-base-directories = true;
-        flake-registry = "";
-        download-buffer-size = 268435456; # 256 MiB
+      programs = {
+        git.enable = true;
+        command-not-found.enable = false;
       };
-
-      channel.enable = false;
     };
 
-    systemd.services.nix-daemon.serviceConfig = {
-      CPUWeight = 20;
-      IOWeight = 20;
-    };
-
-    programs = {
-      git.enable = true;
-      command-not-found.enable = false;
-    };
+    persist.directories = [
+      "/root/.local/share/nix"
+      "/root/.cache/nix"
+    ];
   };
 }
