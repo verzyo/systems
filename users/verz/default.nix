@@ -1,8 +1,11 @@
 {den, ...}: {
   den.aspects.verz = {
-    includes = with den.batteries; [
-      primary-user
-      define-user
+    includes = with den; [
+      aspects.starship
+      aspects.fish
+
+      batteries.primary-user
+      batteries.define-user
     ];
 
     user = {
