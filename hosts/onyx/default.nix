@@ -4,6 +4,8 @@
 
     aspects.onyx = {
       includes = with den.aspects; [
+        greetd
+
         kanata
         networkmanager
 
