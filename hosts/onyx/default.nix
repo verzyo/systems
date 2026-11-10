@@ -4,8 +4,10 @@
 
     aspects.onyx = {
       includes = with den.aspects; [
-        lanzaboote
+        ephemeral.btrfs
+
         plymouth
+        lanzaboote
       ];
 
       nixos = {
