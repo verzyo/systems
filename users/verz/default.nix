@@ -11,5 +11,7 @@
     };
 
     provides.to-hosts.nixos.nix.settings.trusted-users = ["verz"];
+
+    homeManager.home.stateVersion = "26.11";
   };
 }

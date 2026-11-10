@@ -1,9 +1,15 @@
 {
   den,
+  lib,
   inputs,
   ...
 }: {
-  den.schema.host.includes = [den.aspects.defaults];
+  den.schema = {
+    host.includes = [den.aspects.defaults];
+
+    user.classes = lib.mkDefault ["homeManager"];
+    hm-host.includes = [den.aspects.home-manager];
+  };
 
   den.aspects.defaults = {
     includes = with den; [
