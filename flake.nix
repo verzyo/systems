@@ -15,6 +15,13 @@
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
     import-tree = {url = "github:denful/import-tree";};
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        pre-commit.follows = "";
+      };
+    };
     nixpkgs = {url = "github:NixOS/nixpkgs/nixos-unstable";};
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
