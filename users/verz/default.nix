@@ -4,6 +4,7 @@
       aspects.starship
       aspects.fish
 
+      aspects.foot
       aspects.niri
 
       batteries.primary-user
