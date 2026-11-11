@@ -10,6 +10,7 @@
       aspects.git
       aspects.direnv
       aspects.eza
+      aspects.bat
 
       aspects.starship
       aspects.fish
