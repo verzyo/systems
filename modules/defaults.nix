@@ -15,6 +15,7 @@
     includes = with den; [
       batteries.hostname
       aspects.nix
+      aspects.kernel
     ];
 
     os = {
