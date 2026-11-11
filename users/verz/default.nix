@@ -8,6 +8,7 @@
 
       aspects.jujutsu
       aspects.git
+      aspects.direnv
 
       aspects.starship
       aspects.fish
