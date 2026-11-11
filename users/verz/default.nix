@@ -7,6 +7,7 @@
       aspects.cursor
 
       aspects.jujutsu
+      aspects.git
 
       aspects.starship
       aspects.fish
@@ -29,6 +30,7 @@
           email = "279150665+verzyo@users.noreply.github.com";
         };
       in {
+        git.settings.user = identity;
         jujutsu.settings.user = identity;
       };
 
