@@ -6,6 +6,7 @@
 
       aspects.foot
       aspects.niri
+      aspects.cursor
 
       batteries.primary-user
       batteries.define-user
