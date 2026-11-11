@@ -4,6 +4,7 @@
       aspects.starship
       aspects.fish
 
+      aspects.zen
       aspects.foot
       aspects.niri
       aspects.cursor
