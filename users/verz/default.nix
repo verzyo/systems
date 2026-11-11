@@ -4,6 +4,8 @@
       aspects.starship
       aspects.fish
 
+      aspects.niri
+
       batteries.primary-user
       batteries.define-user
     ];
