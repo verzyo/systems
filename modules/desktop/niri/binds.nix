@@ -6,6 +6,7 @@
   }: {
     programs.niri.settings = {
       hotkey-overlay.skip-at-startup = true;
+      recent-windows.enable = false;
 
       binds = let
         wpctl = lib.getExe' pkgs.wireplumber "wpctl";
