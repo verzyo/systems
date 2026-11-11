@@ -26,6 +26,11 @@
       };
 
       nixos = {
+        services.displayManager.autoLogin = {
+          enable = true;
+          user = "verz";
+        };
+
         hardware.facter.reportPath = ./hardware.json;
         system.stateVersion = "26.11";
       };
