@@ -1,34 +1,45 @@
 {
-  den.aspects.niri.homeManager.programs.niri.settings = {
-    cursor = {
-      hide-when-typing = true;
-      hide-after-inactive-ms = 5000;
-    };
+  den.aspects.niri.homeManager = {
+    config,
+    lib,
+    ...
+  }: let
+    pointer = config.home.pointerCursor;
+  in {
+    programs.niri.settings = {
+      cursor = {
+        theme = lib.mkIf pointer.enable pointer.name;
+        size = lib.mkIf pointer.enable pointer.size;
 
-    input = {
-      focus-follows-mouse = {
-        enable = true;
-        max-scroll-amount = "0%";
+        hide-when-typing = true;
+        hide-after-inactive-ms = 5000;
       };
 
-      # power button = sleep
-      power-key-handling.enable = true;
+      input = {
+        focus-follows-mouse = {
+          enable = true;
+          max-scroll-amount = "0%";
+        };
 
-      keyboard = {
-        repeat-delay = 250;
-        repeat-rate = 35;
+        # power button = sleep
+        power-key-handling.enable = true;
 
-        numlock = true;
+        keyboard = {
+          repeat-delay = 250;
+          repeat-rate = 35;
+
+          numlock = true;
+        };
+
+        touchpad = {
+          tap = true;
+
+          drag-lock = true;
+          natural-scroll = true;
+        };
+
+        mouse.accel-profile = "flat";
       };
-
-      touchpad = {
-        tap = true;
-
-        drag-lock = true;
-        natural-scroll = true;
-      };
-
-      mouse.accel-profile = "flat";
     };
   };
 }
