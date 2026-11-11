@@ -4,8 +4,8 @@
   outputs = inputs: import ./outputs.nix inputs;
 
   nixConfig = {
-    extra-substituters = ["https://install.determinate.systems"];
-    extra-trusted-public-keys = ["cache.flakehub.com-3:hJuILl5sVK4iKm86JzgdXW12Y2Hwd5G07qKtHTOcDCM="];
+    extra-substituters = ["https://install.determinate.systems" "https://niri-epireyn.cachix.org"];
+    extra-trusted-public-keys = ["cache.flakehub.com-3:hJuILl5sVK4iKm86JzgdXW12Y2Hwd5G07qKtHTOcDCM=" "niri-epireyn.cachix.org-1:tlVyFN7CtsDT+ZcLPS+ekFWeT1X6X4OqvWqbBMyIzFA="];
   };
 
   inputs = {
@@ -43,6 +43,7 @@
         pre-commit.follows = "";
       };
     };
+    niri = {url = "github:epireyn/niri-flake";};
     nixpkgs = {url = "github:NixOS/nixpkgs/nixos-unstable";};
     preservation = {url = "github:nix-community/preservation";};
     treefmt-nix = {
