@@ -12,6 +12,11 @@
         brightnessctl = lib.getExe pkgs.brightnessctl;
         playerctl = lib.getExe pkgs.playerctl;
       in {
+        "Mod+Return" = {
+          repeat = false;
+          action.spawn = lib.getExe pkgs.xdg-terminal-exec;
+        };
+
         "Mod+O" = {action.toggle-overview = {};};
         "Mod+F" = {action.maximize-column = {};};
         "Mod+Alt+F" = {action.fullscreen-window = {};};
