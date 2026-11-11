@@ -11,6 +11,7 @@
       aspects.direnv
       aspects.eza
       aspects.bat
+      aspects.nh
 
       aspects.starship
       aspects.fish
@@ -35,6 +36,8 @@
       in {
         git.settings.user = identity;
         jujutsu.settings.user = identity;
+
+        nh.flake = "/home/verz/systems";
       };
 
       home.stateVersion = "26.11";
