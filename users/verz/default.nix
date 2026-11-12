@@ -3,6 +3,7 @@
     includes = with den; [
       aspects.zen
       aspects.foot
+      aspects.zed
       aspects.niri
       aspects.cursor
 
