@@ -5,6 +5,7 @@
     aspects.beri = {
       includes = with den.aspects; [
         adguard-home
+        cliproxyapi
         tailscale
 
         raspberry-pi-5
