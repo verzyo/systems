@@ -28,6 +28,13 @@ in {
     _module.args.nixos-raspberrypi = inputs.raspberry-pi;
 
     boot.loader.raspberry-pi.bootloader = "kernel";
+    image.modules.raspberry-pi = {
+      imports = [inputs.raspberry-pi.nixosModules.sd-image];
+
+      # its base profile adds the zfs kernel module, which the 26.05 rpi kernel
+      # can't be aggregated with (no modules.cer)
+      boot.supportedFilesystems.zfs = lib.mkForce false;
+    };
 
     # the cached rpi kernel comes from nixos-26.05 and lacks attributes our 26.11
     # nixpkgs reads. adding them keeps the store path, so it still hits the cache
