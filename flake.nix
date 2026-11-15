@@ -4,8 +4,8 @@
   outputs = inputs: import ./outputs.nix inputs;
 
   nixConfig = {
-    extra-substituters = ["https://install.determinate.systems" "https://niri-epireyn.cachix.org"];
-    extra-trusted-public-keys = ["cache.flakehub.com-3:hJuILl5sVK4iKm86JzgdXW12Y2Hwd5G07qKtHTOcDCM=" "niri-epireyn.cachix.org-1:tlVyFN7CtsDT+ZcLPS+ekFWeT1X6X4OqvWqbBMyIzFA="];
+    extra-substituters = ["https://install.determinate.systems" "https://nixos-raspberrypi.cachix.org" "https://niri-epireyn.cachix.org"];
+    extra-trusted-public-keys = ["cache.flakehub.com-3:hJuILl5sVK4iKm86JzgdXW12Y2Hwd5G07qKtHTOcDCM=" "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI=" "niri-epireyn.cachix.org-1:tlVyFN7CtsDT+ZcLPS+ekFWeT1X6X4OqvWqbBMyIzFA="];
   };
 
   inputs = {
@@ -46,6 +46,7 @@
     niri = {url = "github:epireyn/niri-flake";};
     nixpkgs = {url = "github:NixOS/nixpkgs/nixos-unstable";};
     preservation = {url = "github:nix-community/preservation";};
+    raspberry-pi = {url = "github:nvmd/nixos-raspberrypi/main";};
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";

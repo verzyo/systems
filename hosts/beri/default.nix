@@ -1,4 +1,4 @@
-{den, ...}: {
+_: {
   den = {
     hosts.aarch64-linux.beri = {};
 
