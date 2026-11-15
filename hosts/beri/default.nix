@@ -1,14 +1,11 @@
-_: {
+{den, ...}: {
   den = {
     hosts.aarch64-linux.beri = {};
 
     aspects.beri = {
-      nixos = {
-        boot.loader = {
-          grub.enable = false;
-          generic-extlinux-compatible.enable = true;
-        };
+      includes = [den.aspects.raspberry-pi-5];
 
+      nixos = {
         hardware.enableRedistributableFirmware = true;
 
         networking.networkmanager.enable = true;
