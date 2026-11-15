@@ -3,7 +3,11 @@
     hosts.aarch64-linux.beri = {};
 
     aspects.beri = {
-      includes = [den.aspects.raspberry-pi-5];
+      includes = with den.aspects; [
+        tailscale
+
+        raspberry-pi-5
+      ];
 
       nixos = {
         hardware.enableRedistributableFirmware = true;
