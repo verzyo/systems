@@ -4,6 +4,6 @@
     lib,
     ...
   }: {
-    boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
+    boot.kernelPackages = lib.mkOverride 1001 pkgs.linuxPackages_latest;
   };
 }
