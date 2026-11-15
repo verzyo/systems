@@ -1,0 +1,25 @@
+{den, ...}: {
+  den = {
+    hosts.aarch64-linux.beri = {};
+
+    aspects.beri = {
+      nixos = {
+        boot.loader = {
+          grub.enable = false;
+          generic-extlinux-compatible.enable = true;
+        };
+
+        hardware.enableRedistributableFirmware = true;
+
+        networking.networkmanager.enable = true;
+
+        services.openssh.enable = true;
+        users.users.root.openssh.authorizedKeys.keys = [
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHgCZN7PNO0l8JhDmqaorGdzKRjcKVbqEeka9lR06pqC"
+        ];
+
+        system.stateVersion = "26.11";
+      };
+    };
+  };
+}
