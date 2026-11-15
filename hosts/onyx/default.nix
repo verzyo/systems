@@ -7,6 +7,7 @@
         greetd
 
         kanata
+        tailscale
         networkmanager
 
         ephemeral.btrfs
