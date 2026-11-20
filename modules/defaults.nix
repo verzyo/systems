@@ -4,8 +4,13 @@
   inputs,
   ...
 }: {
+  den.migrations.user-host-content.acknowledged = true;
+
   den.schema = {
-    host.includes = [den.aspects.defaults];
+    host.includes = with den; [
+      aspects.defaults
+      batteries.mutual-provider
+    ];
 
     user.classes = lib.mkDefault ["homeManager"];
     hm-host.includes = [den.aspects.home-manager];

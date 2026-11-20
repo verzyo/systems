@@ -5,6 +5,7 @@
     aspects.onyx = {
       includes = with den.aspects; [
         greetd
+        niri
 
         kanata
         tailscale
